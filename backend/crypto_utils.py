@@ -36,7 +36,12 @@ def get_encryptor() -> TokenEncryptor:
                         for k, v in os.environ.items() if k.startswith('JIRA')}
             import logging
             logger = logging.getLogger(__name__)
-            logger.error(f"JIRA_ENC_KEY not found. Available JIRA vars: {list(jira_vars.keys())}")
-            raise ValueError(f"JIRA_ENC_KEY environment variable not set. Available JIRA vars: {list(jira_vars.keys())}")
+            logger.warning(f"JIRA_ENC_KEY not found. Available JIRA vars: {list(jira_vars.keys())}")
+            logger.warning("Using temporary encryption key. JIRA OAuth will not work until JIRA_ENC_KEY is set!")
+            # Generate a temporary key for development - JIRA OAuth won't work but server will start
+            from cryptography.fernet import Fernet
+            temp_key = Fernet.generate_key().decode()
+            logger.warning(f"Generated temporary key. Set JIRA_ENC_KEY={temp_key} in Railway Variables!")
+            encryption_key = temp_key
         _encryptor = TokenEncryptor(encryption_key)
     return _encryptor
