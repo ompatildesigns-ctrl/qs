@@ -1,0 +1,72 @@
+MONGODB ATLAS - QUICK SETUP STEPS
+==================================
+
+STEP 1: CREATE CLUSTER (You're here now)
+-----------------------------------------
+✅ Free tier selected
+✅ Name: "Cluster0" (or change to "quantumsprout-cluster")
+✅ Provider: AWS
+✅ Region: Choose closest (us-east-1 is fine)
+✅ "Automate security setup": Checked (will create user)
+❌ "Preload sample dataset": Uncheck (not needed)
+
+→ Click "Create Deployment" (green button)
+→ Wait 3-5 minutes
+
+
+STEP 2: CREATE DATABASE USER
+-----------------------------
+If "Automate security setup" was checked:
+- Set username: quantumsprout_admin
+- Set password: Generate strong password (SAVE IT!)
+- Click "Create Database User"
+
+OR manually:
+- Go to "Database Access" → "Add New Database User"
+- Username: quantumsprout_admin
+- Password: Generate (SAVE IT!)
+- Privileges: "Read and write to any database"
+- Click "Add User"
+
+
+STEP 3: CONFIGURE NETWORK ACCESS
+----------------------------------
+- Go to "Network Access"
+- Click "Add IP Address"
+- Click "Allow Access from Anywhere" (adds 0.0.0.0/0)
+- Click "Confirm"
+
+
+STEP 4: GET CONNECTION STRING
+------------------------------
+- Go to "Database" → Click "Connect"
+- Choose "Connect your application"
+- Driver: Python 3.6+
+- Copy connection string
+
+
+STEP 5: FORMAT CONNECTION STRING
+---------------------------------
+Original:
+mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
+
+Replace:
+- <username> → quantumsprout_admin (your username)
+- <password> → YOUR_PASSWORD (your password)
+- Add /quantumsprout_production before the ?
+
+Final format:
+mongodb+srv://quantumsprout_admin:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/quantumsprout_production?retryWrites=true&w=majority
+
+
+STEP 6: ADD TO RAILWAY
+-----------------------
+- Railway Dashboard → Variables tab
+- Click "New Variable"
+- Name: MONGO_URL
+- Value: Paste formatted connection string above
+- Click "Add"
+
+
+⚠️ IMPORTANT: Save your password! You'll need it for the connection string.
+

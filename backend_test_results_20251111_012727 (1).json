@@ -1,0 +1,4771 @@
+{
+  "timestamp": "2025-11-11T01:27:27.635883",
+  "total_tests": 25,
+  "passed_tests": 24,
+  "success_rate": 96.0,
+  "test_results": [
+    {
+      "test": "Health Check",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "status": "healthy",
+        "service": "jira-sync-backend"
+      }
+    },
+    {
+      "test": "Get Current Connection",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "id": "5c4d305c-18d5-4e7d-9d63-8d1bd0435e6a",
+        "cloud_id": "77e8589a-cae4-4061-b3fe-d5d061f40d37",
+        "site_url": "https://libertyhomeguard.atlassian.net",
+        "created_at": "2025-11-10T20:32:42.475691+00:00",
+        "last_full_sync_at": "2025-11-10T20:33:19.637209+00:00"
+      }
+    },
+    {
+      "test": "Get Connection Details",
+      "success": false,
+      "details": "Expected 200, got 404",
+      "response_data": {
+        "detail": "Connection not found"
+      }
+    },
+    {
+      "test": "Get Jira Resources",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": [
+        {
+          "id": "77e8589a-cae4-4061-b3fe-d5d061f40d37",
+          "name": "libertyhomeguard",
+          "url": "https://libertyhomeguard.atlassian.net",
+          "scopes": [
+            "read:jira-user",
+            "read:jira-work"
+          ],
+          "avatar_url": "https://site-admin-avatar-cdn.prod.public.atl-paas.net/avatars/240/triangle.png"
+        }
+      ]
+    },
+    {
+      "test": "Get Sync Stats",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "projects": 41,
+        "issues": 2660,
+        "statuses": 107,
+        "users": 268,
+        "connection_id": "5c4d305c-18d5-4e7d-9d63-8d1bd0435e6a"
+      }
+    },
+    {
+      "test": "Start Manual Sync",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "id": "44bde44c-f01b-44f2-a8de-dabde256ccd8",
+        "connection_id": "5c4d305c-18d5-4e7d-9d63-8d1bd0435e6a",
+        "sync_type": "full",
+        "status": "queued",
+        "started_at": null,
+        "finished_at": null,
+        "stats": null,
+        "error": null,
+        "created_at": "2025-11-11T01:27:26.231725Z"
+      }
+    },
+    {
+      "test": "Team Comparison Analytics",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "period_days": 90,
+        "comparison": {
+          "sundew": {
+            "team_label": "Sundew (Contractors)",
+            "issues_assigned": 1754,
+            "issues_completed": 1211,
+            "completion_rate": 69.0,
+            "avg_cycle_time_days": 7.7,
+            "issues_created_unassigned": 28
+          },
+          "us": {
+            "team_label": "US Team (Internal)",
+            "issues_assigned": 77,
+            "issues_completed": 39,
+            "completion_rate": 50.6,
+            "avg_cycle_time_days": 11.2,
+            "issues_created_unassigned": 20
+          },
+          "unknown": {
+            "team_label": "Unknown Team",
+            "issues_assigned": 121,
+            "issues_completed": 57,
+            "completion_rate": 47.1,
+            "avg_cycle_time_days": 12.2,
+            "issues_created_unassigned": 55
+          }
+        },
+        "insights": [
+          "\u26a0\ufe0f Sundew team completing 18.4% more issues than US team"
+        ]
+      }
+    },
+    {
+      "test": "Historical Trends Analytics",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "months_analyzed": 6,
+        "monthly_trends": [
+          {
+            "month": "2025-06",
+            "total_completed": 1,
+            "sundew_completed": 1,
+            "us_completed": 0,
+            "avg_cycle_time_days": 307.6,
+            "sundew_cycle_time_days": 307.6,
+            "us_cycle_time_days": 0
+          },
+          {
+            "month": "2025-07",
+            "total_completed": 7,
+            "sundew_completed": 5,
+            "us_completed": 0,
+            "avg_cycle_time_days": 143.6,
+            "sundew_cycle_time_days": 183.1,
+            "us_cycle_time_days": 0
+          },
+          {
+            "month": "2025-08",
+            "total_completed": 226,
+            "sundew_completed": 190,
+            "us_completed": 12,
+            "avg_cycle_time_days": 22.5,
+            "sundew_cycle_time_days": 19.2,
+            "us_cycle_time_days": 15.9
+          },
+          {
+            "month": "2025-09",
+            "total_completed": 417,
+            "sundew_completed": 361,
+            "us_completed": 16,
+            "avg_cycle_time_days": 13.2,
+            "sundew_cycle_time_days": 11.4,
+            "us_cycle_time_days": 36.4
+          },
+          {
+            "month": "2025-10",
+            "total_completed": 774,
+            "sundew_completed": 715,
+            "us_completed": 14,
+            "avg_cycle_time_days": 18.4,
+            "sundew_cycle_time_days": 15.4,
+            "us_cycle_time_days": 45.4
+          },
+          {
+            "month": "2025-11",
+            "total_completed": 140,
+            "sundew_completed": 112,
+            "us_completed": 13,
+            "avg_cycle_time_days": 22.4,
+            "sundew_cycle_time_days": 15.4,
+            "us_cycle_time_days": 79.9
+          }
+        ],
+        "insights": [
+          "\ud83d\udcc9 Velocity declined 66% over last 3 months",
+          "\u26a0\ufe0f Cycle time increased 70% over last 3 months"
+        ]
+      }
+    },
+    {
+      "test": "Accountability Tracking",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "stale_issues_count": 266,
+        "stale_issues": [
+          {
+            "key": "PDT-350",
+            "summary": "Name Verification (CUPO)",
+            "status": "Backlog",
+            "assignee": "Abraham Ludwick",
+            "days_stale": 90.1,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "WCUP-1571",
+            "summary": "[LPP-2868 - WCUP-1537] - Incorrect Phone Numbers Displayed i",
+            "status": "Canceled",
+            "assignee": "Souvik Mondal",
+            "days_stale": 89.9,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "key": "PDT-500",
+            "summary": "Sales Cm - for olo's remove the initial payment from countin",
+            "status": "Backlog",
+            "assignee": "Kevin Sanchez",
+            "days_stale": 89.5,
+            "team": "US Team (Internal)"
+          },
+          {
+            "key": "PDT-324",
+            "summary": "Make multiple same day payments register as one for commissi",
+            "status": "Canceled",
+            "assignee": "Kevin Sanchez",
+            "days_stale": 89.5,
+            "team": "US Team (Internal)"
+          },
+          {
+            "key": "PDT-183",
+            "summary": "Spiff Redesign :'(",
+            "status": "Backlog",
+            "assignee": "Kevin Sanchez",
+            "days_stale": 89.5,
+            "team": "US Team (Internal)"
+          },
+          {
+            "key": "AT-67",
+            "summary": "Ansible - Mark as Handled ",
+            "status": "Canceled",
+            "assignee": "Athivatech Dev Team",
+            "days_stale": 88.5,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "AT-40",
+            "summary": "Analyzing the Call Routing Queue for Cost Optimization",
+            "status": "Backlog",
+            "assignee": "Sathya Nallasamy",
+            "days_stale": 88.5,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "AT-11",
+            "summary": "LiveChat enhancement Project",
+            "status": "Backlog",
+            "assignee": "Athivatech Dev Team",
+            "days_stale": 88.4,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "PDT-551",
+            "summary": "Incorporate OTP for authentication, as it is necessary befor",
+            "status": "Backlog",
+            "assignee": "Nino Tabagari",
+            "days_stale": 88.4,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "AT-16",
+            "summary": "Data lake live update (future task)",
+            "status": "Backlog",
+            "assignee": "Athivatech Dev Team",
+            "days_stale": 88.4,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "PDT-550",
+            "summary": "Mapping policy statues",
+            "status": "Backlog",
+            "assignee": "Nino Tabagari",
+            "days_stale": 88.4,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "PDT-308",
+            "summary": "Have the disputes in the tech payout module",
+            "status": "Canceled",
+            "assignee": "Miguel Urena",
+            "days_stale": 88.4,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "AT-2",
+            "summary": "Ensure Complete Capture of Google (GA4) Client ID for Call L",
+            "status": "Archived",
+            "assignee": "Monisha Krish",
+            "days_stale": 88.3,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "PDT-229",
+            "summary": "Information grabbing ",
+            "status": "Canceled",
+            "assignee": "Remy Stern-Beckerman",
+            "days_stale": 88.2,
+            "team": "US Team (Internal)"
+          },
+          {
+            "key": "PDT-165",
+            "summary": "Call Log Business Logic in LEROI",
+            "status": "In Progress",
+            "assignee": "Peter Lin",
+            "days_stale": 88.2,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "PDT-282",
+            "summary": "Look into SendBlue",
+            "status": "Canceled",
+            "assignee": "Peter Lin",
+            "days_stale": 88.2,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "PDT-212",
+            "summary": "Invoice status filter",
+            "status": "Canceled",
+            "assignee": "Remy Stern-Beckerman",
+            "days_stale": 88.2,
+            "team": "US Team (Internal)"
+          },
+          {
+            "key": "AT-132",
+            "summary": "Claim Log Validation",
+            "status": "Backlog",
+            "assignee": "Gurukarthikeyan Poovalingam",
+            "days_stale": 87.8,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "AT-141",
+            "summary": "Agent Dashboard - Impact Analysis of Department tagging base",
+            "status": "Canceled",
+            "assignee": "Sowmya N",
+            "days_stale": 87.7,
+            "team": "Unknown Team"
+          },
+          {
+            "key": "AT-89",
+            "summary": "Research into transferring calls to arbitrary user without u",
+            "status": "Canceled",
+            "assignee": "Gunal R",
+            "days_stale": 87.3,
+            "team": "Unknown Team"
+          }
+        ],
+        "unassigned_issues_count": 82,
+        "unassigned_issues": [
+          {
+            "key": "SEO-186",
+            "summary": "top 10 high intent pages",
+            "status": "In Progress",
+            "reporter": "Angel Vall",
+            "days_unassigned": 201.4
+          },
+          {
+            "key": "LTG-345",
+            "summary": "Phase 1 - ATS (Applicant Tracking System) Basic Functions",
+            "status": "To Do",
+            "reporter": "Leyla Allaberganova",
+            "days_unassigned": 188.2
+          },
+          {
+            "key": "AT-110",
+            "summary": "Customer follow up along with the categorization data.",
+            "status": "Backlog",
+            "reporter": "Sathya Nallasamy",
+            "days_unassigned": 143.6
+          },
+          {
+            "key": "PDT-546",
+            "summary": "Auto-populate New RA Request Form",
+            "status": "Backlog",
+            "reporter": "Abraham Ludwick",
+            "days_unassigned": 90.3
+          },
+          {
+            "key": "LTG-507",
+            "summary": "Resume Upload - Application Received   Trigger event no long",
+            "status": "To Do",
+            "reporter": "Vikram Kumar",
+            "days_unassigned": 84.7
+          },
+          {
+            "key": "PDT-556",
+            "summary": "Unresponsive Tech automations not working for TN:AC-19888314",
+            "status": "Backlog",
+            "reporter": "Crystal Robinson",
+            "days_unassigned": 82.4
+          },
+          {
+            "key": "SEO-213",
+            "summary": "Coupon Page",
+            "status": "Needs Review",
+            "reporter": "Angel Vall",
+            "days_unassigned": 82.3
+          },
+          {
+            "key": "PDT-567",
+            "summary": "Potential partner Avalara for the Sales Tax project",
+            "status": "Backlog",
+            "reporter": "Nino Tabagari",
+            "days_unassigned": 76.4
+          },
+          {
+            "key": "SEO-215",
+            "summary": "Rob mentions",
+            "status": "To Do",
+            "reporter": "Angel Vall",
+            "days_unassigned": 75.4
+          },
+          {
+            "key": "SEO-214",
+            "summary": "Rob Liberty Home Guard suggestions (comp comparisons)",
+            "status": "To Do",
+            "reporter": "Angel Vall",
+            "days_unassigned": 75.4
+          },
+          {
+            "key": "PDT-574",
+            "summary": "Underwriting Enhancement",
+            "status": "Canceled",
+            "reporter": "Miguel Urena",
+            "days_unassigned": 67.3
+          },
+          {
+            "key": "SEO-231",
+            "summary": "How to Seal Windows and Doors to Reduce Energy Bills and Sta",
+            "status": "To Do",
+            "reporter": "Angel Vall",
+            "days_unassigned": 63.3
+          },
+          {
+            "key": "SEO-230",
+            "summary": "Essential Chimney Maintenance Tips: Safety, Cleaning, and Re",
+            "status": "To Do",
+            "reporter": "Angel Vall",
+            "days_unassigned": 63.3
+          },
+          {
+            "key": "SEO-229",
+            "summary": "Average Life of a Furnace: Signs It\u2019s Time to Replace & Main",
+            "status": "To Do",
+            "reporter": "Angel Vall",
+            "days_unassigned": 63.3
+          },
+          {
+            "key": "SEO-228",
+            "summary": "How to Troubleshoot and Repair a Washing Machine That Won\u2019t ",
+            "status": "To Do",
+            "reporter": "Angel Vall",
+            "days_unassigned": 63.3
+          },
+          {
+            "key": "SEO-235",
+            "summary": "Home Warranty for Rental Property: Cost, Coverage & Benefits",
+            "status": "To Do",
+            "reporter": "Angel Vall",
+            "days_unassigned": 62.2
+          },
+          {
+            "key": "SEO-236",
+            "summary": "What\u2019s the Difference Between Home Insurance and Home Warran",
+            "status": "To Do",
+            "reporter": "Angel Vall",
+            "days_unassigned": 62.2
+          },
+          {
+            "key": "PDT-595",
+            "summary": "Policy showing incorrect dates after downgrade",
+            "status": "Backlog",
+            "reporter": "Miguel Urena",
+            "days_unassigned": 54.4
+          },
+          {
+            "key": "SYC-6229",
+            "summary": "Update Refer-a-Friend email template(s) \u2014 replace \u201cAmazon Gi",
+            "status": "Backlog",
+            "reporter": "Nino Green",
+            "days_unassigned": 49.3
+          },
+          {
+            "key": "CP-23",
+            "summary": "Implementation on the CUPO Mobile App API",
+            "status": "Backlog",
+            "reporter": "Pritam Bhattacharyya",
+            "days_unassigned": 46.6
+          }
+        ],
+        "top_overdue_assignees": [
+          {
+            "assignee": "ANUP",
+            "overdue_count": 35,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Arup Mondal",
+            "overdue_count": 23,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Kevin Sanchez",
+            "overdue_count": 17,
+            "team": "US Team (Internal)"
+          },
+          {
+            "assignee": "Shahrukh Khan",
+            "overdue_count": 15,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Riju Ghosh",
+            "overdue_count": 14,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Remy Stern-Beckerman",
+            "overdue_count": 14,
+            "team": "US Team (Internal)"
+          },
+          {
+            "assignee": "Aush Paul",
+            "overdue_count": 12,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Roie Cohen",
+            "overdue_count": 12,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Abinash Padhi",
+            "overdue_count": 10,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Vinod Lalchandani",
+            "overdue_count": 8,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Yael Harosh",
+            "overdue_count": 8,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Somnath Haldar",
+            "overdue_count": 7,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Pritam Bhattacharyya",
+            "overdue_count": 6,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Soumyajit Ball",
+            "overdue_count": 5,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Ratul Rakshit",
+            "overdue_count": 5,
+            "team": "Sundew (Contractors)"
+          }
+        ],
+        "insights": [
+          "\ud83d\udd34 266 issues haven't been updated in 14+ days",
+          "\u26a0\ufe0f 82 issues remain unassigned",
+          "\ud83d\udd34 ANUP has 35 stale issues"
+        ]
+      }
+    },
+    {
+      "test": "Communication Breakdown",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "period_days": 30,
+        "waiting_issues_count": 8,
+        "waiting_issues": [
+          {
+            "key": "GD-123",
+            "summary": "Employee Pamphlet Design",
+            "status": "Awaiting Feedback",
+            "assignee": "Corey Wright",
+            "days_waiting": 7.2
+          },
+          {
+            "key": "GD-341",
+            "summary": "Create breadcrumb mockups across the site (reference: AHS ex",
+            "status": "Awaiting Feedback",
+            "assignee": "Xavier Goyco",
+            "days_waiting": 7.2
+          },
+          {
+            "key": "GD-328",
+            "summary": "LHG-Branded LinkedIn Profile Banner (Employee Use)",
+            "status": "Awaiting Feedback",
+            "assignee": "Corey Wright",
+            "days_waiting": 4.3
+          },
+          {
+            "key": "GD-338",
+            "summary": "Re-doing the work order doc",
+            "status": "Awaiting Feedback",
+            "assignee": "Corey Wright",
+            "days_waiting": 4.3
+          },
+          {
+            "key": "GD-185",
+            "summary": "Updating the Ticket Status History ",
+            "status": "Awaiting Feedback",
+            "assignee": "Yael Harosh",
+            "days_waiting": 0.4
+          },
+          {
+            "key": "GD-361",
+            "summary": "Mock-up: Update NerdWallet Logo Usage & Quote on Website per",
+            "status": "Awaiting Feedback",
+            "assignee": "Xavier Goyco",
+            "days_waiting": 0.4
+          },
+          {
+            "key": "GD-310",
+            "summary": "TEPO APP intro Needed on TEPO Website and Technician Apply P",
+            "status": "Awaiting Feedback",
+            "assignee": "Xavier Goyco",
+            "days_waiting": 0.3
+          },
+          {
+            "key": "GD-360",
+            "summary": "Guardian Gazette Q3 2025",
+            "status": "Awaiting Feedback",
+            "assignee": "Corey Wright",
+            "days_waiting": 0.2
+          }
+        ],
+        "cross_team_handoffs_count": 79,
+        "cross_team_handoffs": [
+          {
+            "key": "SYC-6474",
+            "summary": "SYC-1768 Continuation",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "Pritam Bhattacharyya (Sundew (Contractors))",
+            "status": "UAT"
+          },
+          {
+            "key": "LMA-749",
+            "summary": "V4 Policy Alignment",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "Sandeep Kumar Giri (Sundew (Contractors))",
+            "status": "In Progress"
+          },
+          {
+            "key": "LER-563",
+            "summary": "Inquiry on Inbox feature",
+            "created_by": "Kevin Sanchez (US Team (Internal))",
+            "assigned_to": "Aush Paul (Sundew (Contractors))",
+            "status": "In Progress"
+          },
+          {
+            "key": "SYC-6374",
+            "summary": "Claim feature adjustments for V4 policies",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "Soumyajit Ball (Sundew (Contractors))",
+            "status": "In Progress"
+          },
+          {
+            "key": "SYC-6462",
+            "summary": "Accesspermissions search links to incorrect tab",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "Shahrukh Khan (Sundew (Contractors))",
+            "status": "Done"
+          },
+          {
+            "key": "LMA-742",
+            "summary": "Upload file action - Mobile",
+            "created_by": "Matthew Matalon (US Team (Internal))",
+            "assigned_to": "Abinash Padhi (Sundew (Contractors))",
+            "status": "QA"
+          },
+          {
+            "key": "SYC-6466",
+            "summary": "Change Customer's City",
+            "created_by": "Kevin Sanchez (US Team (Internal))",
+            "assigned_to": "ANUP (Sundew (Contractors))",
+            "status": "Backlog"
+          },
+          {
+            "key": "SYC-6373",
+            "summary": "Selling and updating V4 policies",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "ANUP (Sundew (Contractors))",
+            "status": "In Progress"
+          },
+          {
+            "key": "SYC-1768",
+            "summary": "HVAC Maintenance Add-On BRD",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "Pritam Bhattacharyya (Sundew (Contractors))",
+            "status": "UAT"
+          },
+          {
+            "key": "SYC-5406",
+            "summary": "Claim actions should apply on r/r claim, not maintenance",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "Sayon Jana (Sundew (Contractors))",
+            "status": "Done"
+          },
+          {
+            "key": "SYC-6372",
+            "summary": "V4 Policy rollout",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "ANUP (Sundew (Contractors))",
+            "status": "In Progress"
+          },
+          {
+            "key": "VP-163",
+            "summary": "R/R Claim rejects Maintenance form",
+            "created_by": "Kevin Sanchez (US Team (Internal))",
+            "assigned_to": "Sayon Jana (Sundew (Contractors))",
+            "status": "Done"
+          },
+          {
+            "key": "LMA-774",
+            "summary": "(SYC-1768) Extend Coverage prices are incorrect",
+            "created_by": "Kevin Sanchez (US Team (Internal))",
+            "assigned_to": "Dipak Bari (Sundew (Contractors))",
+            "status": "Done"
+          },
+          {
+            "key": "HR-165",
+            "summary": "Workforce Management Agents cant see users in modules",
+            "created_by": "Kevin Sanchez (US Team (Internal))",
+            "assigned_to": "Shahrukh Khan (Sundew (Contractors))",
+            "status": "Done"
+          },
+          {
+            "key": "SYC-6453",
+            "summary": "Needs Review & Active Linked Statuses ",
+            "created_by": "matthew simmons (US Team (Internal))",
+            "assigned_to": "Amit Kumar Gupta (Sundew (Contractors))",
+            "status": "Done"
+          },
+          {
+            "key": "SYC-6105",
+            "summary": "SYC-1768 | Payouts to technicians for Maintenance",
+            "created_by": "Remy Stern-Beckerman (US Team (Internal))",
+            "assigned_to": "Sayon Jana (Sundew (Contractors))",
+            "status": "UAT"
+          },
+          {
+            "key": "VP-162",
+            "summary": "(SYC-1768) Unable to save changes in TEPO profile",
+            "created_by": "Kevin Sanchez (US Team (Internal))",
+            "assigned_to": "Sayon Jana (Sundew (Contractors))",
+            "status": "Go-Live Ready"
+          },
+          {
+            "key": "SYC-5676",
+            "summary": "Ticket Payout Enhancement",
+            "created_by": "Kevin Sanchez (US Team (Internal))",
+            "assigned_to": "Swarup Das (Sundew (Contractors))",
+            "status": "Go-Live Ready"
+          },
+          {
+            "key": "SYC-6457",
+            "summary": "Adjust Payouts and Customer Dashboard values",
+            "created_by": "Kevin Sanchez (US Team (Internal))",
+            "assigned_to": "ANUP (Sundew (Contractors))",
+            "status": "Backlog"
+          },
+          {
+            "key": "SYC-6456",
+            "summary": "Removing I/R Cap Validation on Diagnostic Forms",
+            "created_by": "matthew simmons (US Team (Internal))",
+            "assigned_to": "Amit Kumar Gupta (Sundew (Contractors))",
+            "status": "Backlog"
+          }
+        ],
+        "insights": [
+          null,
+          "\u26a0\ufe0f 79 cross-team handoffs detected"
+        ]
+      }
+    },
+    {
+      "test": "Executive Summary",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "overview": {
+          "total_issues": 2660,
+          "active_issues": 1079,
+          "resolved_issues": 1581,
+          "total_projects": 41,
+          "active_team_members": 171
+        },
+        "key_metrics": {
+          "bottlenecks_detected": 18,
+          "stuck_issues": 330,
+          "unassigned_work": 82,
+          "overloaded_members": 21,
+          "avg_cycle_time_days": 17.0,
+          "weekly_velocity": 124.9,
+          "velocity_trend": "increasing"
+        },
+        "red_flags": [
+          "330 issues stuck >14 days",
+          "21 team members overloaded (>15 issues)"
+        ],
+        "health_score": 70
+      }
+    },
+    {
+      "test": "Bottleneck Analysis",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "status_analysis": [
+          {
+            "status": "Archived",
+            "avg_days": 399.5,
+            "issue_count": 2,
+            "is_bottleneck": true
+          },
+          {
+            "status": "Cancelled",
+            "avg_days": 217.5,
+            "issue_count": 4,
+            "is_bottleneck": true
+          },
+          {
+            "status": "Finished Design",
+            "avg_days": 163.5,
+            "issue_count": 2,
+            "is_bottleneck": true
+          },
+          {
+            "status": "Need More Information",
+            "avg_days": 150.8,
+            "issue_count": 4,
+            "is_bottleneck": true
+          },
+          {
+            "status": "Awaiting Feedback",
+            "avg_days": 132.1,
+            "issue_count": 8,
+            "is_bottleneck": true
+          },
+          {
+            "status": "Go-Live Ready",
+            "avg_days": 115.4,
+            "issue_count": 16,
+            "is_bottleneck": true
+          },
+          {
+            "status": "ARCHIVED",
+            "avg_days": 112.5,
+            "issue_count": 2,
+            "is_bottleneck": true
+          },
+          {
+            "status": "Backlog",
+            "avg_days": 102.9,
+            "issue_count": 273,
+            "is_bottleneck": true
+          },
+          {
+            "status": "UAT",
+            "avg_days": 98.8,
+            "issue_count": 29,
+            "is_bottleneck": true
+          },
+          {
+            "status": "In Progress",
+            "avg_days": 62.3,
+            "issue_count": 188,
+            "is_bottleneck": true
+          }
+        ],
+        "stuck_issues": [
+          {
+            "key": "SYC-107",
+            "summary": "Edit Policy enhancements",
+            "status": "Backlog",
+            "days_in_status": 1406,
+            "assignee": "ANUP",
+            "project_id": "10003"
+          },
+          {
+            "key": "SYC-205",
+            "summary": "Optimizing File Upload Process",
+            "status": "Backlog",
+            "days_in_status": 1390,
+            "assignee": "Arpan Sarkar",
+            "project_id": "10003"
+          },
+          {
+            "key": "SYC-739",
+            "summary": "Updating card information",
+            "status": "In Progress",
+            "days_in_status": 1182,
+            "assignee": "ANUP",
+            "project_id": "10003"
+          },
+          {
+            "key": "SYC-790",
+            "summary": "Creating  Primary Key for Account Level Information",
+            "status": "Backlog",
+            "days_in_status": 1154,
+            "assignee": "ANUP",
+            "project_id": "10003"
+          },
+          {
+            "key": "HR-28",
+            "summary": "Enhancements to HR Module: Viewing permissions and UI",
+            "status": "Backlog",
+            "days_in_status": 1013,
+            "assignee": "Shahrukh Khan",
+            "project_id": "10056"
+          },
+          {
+            "key": "WCUP-328",
+            "summary": "Sales Invoice ",
+            "status": "Done",
+            "days_in_status": 987,
+            "assignee": "Nasirul Sk",
+            "project_id": "10004"
+          },
+          {
+            "key": "PDT-399",
+            "summary": "WORK CONFIRMATION CUPO/SYCO/TEPO",
+            "status": "In Progress",
+            "days_in_status": 981,
+            "assignee": "Roie Cohen",
+            "project_id": "10084"
+          },
+          {
+            "key": "SYC-1501",
+            "summary": "Being able to pull up the final days metrics for salesroom dashboard reports",
+            "status": "Backlog",
+            "days_in_status": 946,
+            "assignee": "Shahrukh Khan",
+            "project_id": "10003"
+          },
+          {
+            "key": "SYC-1768",
+            "summary": "HVAC Maintenance Add-On BRD",
+            "status": "UAT",
+            "days_in_status": 879,
+            "assignee": "Pritam Bhattacharyya",
+            "project_id": "10003"
+          },
+          {
+            "key": "HR-48",
+            "summary": "\"View Team Schedule\" Default",
+            "status": "Backlog",
+            "days_in_status": 791,
+            "assignee": "Shahrukh Khan",
+            "project_id": "10056"
+          },
+          {
+            "key": "SYC-2787",
+            "summary": "Adding Recommended Technicians",
+            "status": "Archived",
+            "days_in_status": 673,
+            "assignee": "Soumyajit Ball",
+            "project_id": "10003"
+          },
+          {
+            "key": "PDT-365",
+            "summary": "New features of the technician termination module ",
+            "status": "Backlog",
+            "days_in_status": 671,
+            "assignee": "Remy Stern-Beckerman",
+            "project_id": "10084"
+          },
+          {
+            "key": "WCUP-720",
+            "summary": "Change Browser Back Button Behavior",
+            "status": "Backlog",
+            "days_in_status": 651,
+            "assignee": "Manas Maity",
+            "project_id": "10004"
+          },
+          {
+            "key": "SYC-2953",
+            "summary": "Moving off of Twilio into the Amazon Connect (AWS CONNECT) universe",
+            "status": "Backlog",
+            "days_in_status": 638,
+            "assignee": "Manas Maity",
+            "project_id": "10003"
+          },
+          {
+            "key": "SYC-3041",
+            "summary": "Signing Policy Before Creating a New Claim",
+            "status": "Backlog",
+            "days_in_status": 611,
+            "assignee": "ANUP",
+            "project_id": "10003"
+          },
+          {
+            "key": "HR-64",
+            "summary": "Careers Page Email: Adding Phone Number and Email",
+            "status": "Backlog",
+            "days_in_status": 588,
+            "assignee": "Shahrukh Khan",
+            "project_id": "10056"
+          },
+          {
+            "key": "SYC-3234",
+            "summary": "Renewal Mailer",
+            "status": "Backlog",
+            "days_in_status": 573,
+            "assignee": "Ratul Rakshit",
+            "project_id": "10003"
+          },
+          {
+            "key": "SYC-3420",
+            "summary": "Motili API Integration - Doc",
+            "status": "Backlog",
+            "days_in_status": 536,
+            "assignee": "Manas Maity",
+            "project_id": "10003"
+          },
+          {
+            "key": "WCUP-930",
+            "summary": "Updating a CUPO video",
+            "status": "Backlog",
+            "days_in_status": 495,
+            "assignee": "Fredrick Lepcha",
+            "project_id": "10004"
+          },
+          {
+            "key": "LER-344",
+            "summary": "Mass Texting/SMS Tool",
+            "status": "In Progress",
+            "days_in_status": 481,
+            "assignee": "Arup Mondal",
+            "project_id": "10049"
+          }
+        ],
+        "total_bottlenecks": 18,
+        "total_stuck_issues": 330
+      }
+    },
+    {
+      "test": "Workload Distribution",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "workload_distribution": [
+          {
+            "assignee": "ANUP",
+            "active_issues": 133,
+            "issues": [
+              {
+                "key": "SYC-6466",
+                "summary": "Change Customer's City",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6469",
+                "summary": "Salesman KPI Board Module",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6373",
+                "summary": "Selling and updating V4 policies",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6372",
+                "summary": "V4 Policy rollout",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "SYC-6463",
+                "summary": "Please have Anup's email address in bcc",
+                "status": "Done",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Shahrukh Khan",
+            "active_issues": 89,
+            "issues": [
+              {
+                "key": "ITM-387",
+                "summary": "\u201cBuild Reso form was submitted by [user]. Recommen",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6055",
+                "summary": "SYC-6052 | Build Reso Form",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "ITM-403",
+                "summary": "Under build reso form please ensure appropiate ico",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITM-401",
+                "summary": "REPLACE : supplier installation & removal 2nd cond",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITM-219",
+                "summary": "SYC-6055",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Pritam Bhattacharyya",
+            "active_issues": 53,
+            "issues": [
+              {
+                "key": "SYC-6474",
+                "summary": "SYC-1768 Continuation",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6470",
+                "summary": "ACH policies went to 'Expired' instead of 'Awaitin",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "CP-21",
+                "summary": "[SYC-1768] - CUPO WEB - Incorrect Status Message D",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "CP-49",
+                "summary": "[SYC-1768] - Tech No-Show option disabled in CUPO ",
+                "status": "Canceled",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-1768",
+                "summary": "HVAC Maintenance Add-On BRD",
+                "status": "UAT",
+                "priority": "P1 - Critical"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Ratul Rakshit",
+            "active_issues": 51,
+            "issues": [
+              {
+                "key": "SYC-3234",
+                "summary": "Renewal Mailer",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3307",
+                "summary": "Ratul: Internal Meeting, Discussion & Documentatio",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "CP-36",
+                "summary": "Addon Deep link functionality - V4 policy CUPO ",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "CP-34",
+                "summary": "Addons purchase functionality - V4 policy CUPO ",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6423",
+                "summary": "Auto Renewal Functionality",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Amit Kumar Gupta",
+            "active_issues": 38,
+            "issues": [
+              {
+                "key": "LPP-3309",
+                "summary": "Amit: Internal Meeting, Discussion & Documentation",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITM-402",
+                "summary": "Additional option appear on the sourcing form out ",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITM-392",
+                "summary": "LMA-682",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6453",
+                "summary": "Needs Review & Active Linked Statuses ",
+                "status": "Done",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6456",
+                "summary": "Removing I/R Cap Validation on Diagnostic Forms",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Arpan Sarkar",
+            "active_issues": 36,
+            "issues": [
+              {
+                "key": "WCUP-1678",
+                "summary": "Funnel: Update Policy creation logic V4 policy",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "WCUP-1669",
+                "summary": "BFCM: Integration development for Landing Pages al",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "WCUP-1668",
+                "summary": "BFCM: Integration development for Home Page along ",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "LPP-3355",
+                "summary": "Access to BIC Cost Metrics Module",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "WCUP-1657",
+                "summary": "Duplicate and increase Legion offer",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Sayon Jana",
+            "active_issues": 34,
+            "issues": [
+              {
+                "key": "SYC-6448",
+                "summary": "SYC-1768 | Automatic Approval Payout Job CRON Issu",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3310",
+                "summary": "Sayon: Internal Meeting, Discussion & Documentatio",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6471",
+                "summary": "[SYC-1768] - Incorrect Task and Progression Status",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITM-399",
+                "summary": "Got 'Some Error Occurred' while creating R/R claim",
+                "status": "Backlog",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "ITM-394",
+                "summary": "Wrong technician scf appeared while created R/R cl",
+                "status": "QA",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Ashok Bagdi",
+            "active_issues": 34,
+            "issues": [
+              {
+                "key": "ITLT-137",
+                "summary": "Category dropdown is not displaying after deleting",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-563",
+                "summary": "Sprint 29: Client calls, internal meetings - Ashok",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-565",
+                "summary": "Sprint 29: Enhancement Task with QA Feedback and A",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITLT-150",
+                "summary": "Description field not allowing full stop, comma, a",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITLT-99",
+                "summary": "Add \u201cOpen Ended\u201d Answer Type with 4000 Character L",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Arup Mondal",
+            "active_issues": 31,
+            "issues": [
+              {
+                "key": "LER-344",
+                "summary": "Mass Texting/SMS Tool",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LER-559",
+                "summary": "Leroi Mockups for Homepage/ContactUs/PrivacyPolicy",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-506",
+                "summary": "Stage Management ",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LMA-764",
+                "summary": "DSM, Internal meeting and discussion | Sprint 38",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-487",
+                "summary": "Email Communication Functionality and Research",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Riju Ghosh",
+            "active_issues": 30,
+            "issues": [
+              {
+                "key": "LER-639",
+                "summary": "Create the call recording module",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "LER-638",
+                "summary": "Refactor and code cleanup",
+                "status": "Selected for Development",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LER-640",
+                "summary": "Build the frontend for call recording module",
+                "status": "Selected for Development",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "LER-575",
+                "summary": "Call Recording Module",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LER-440",
+                "summary": "Process the campaigns",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Somnath Haldar",
+            "active_issues": 27,
+            "issues": [
+              {
+                "key": "LPP-3304",
+                "summary": "Somnath: Internal Meeting, Discussion & Documentat",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "WCUP-1666",
+                "summary": "BFCM: Blackout Theme Responsiveness for Landing Pa",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "ITLT-138",
+                "summary": "Full text not visible for long values in Benefits ",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITLT-119",
+                "summary": "Table alignment issue on Benefits Listing page whe",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "WCUP-1663",
+                "summary": "BFCM: Blackout Theme Integration for Landing Pages",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Soumyajit Ball",
+            "active_issues": 27,
+            "issues": [
+              {
+                "key": "SYC-6374",
+                "summary": "Claim feature adjustments for V4 policies",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6303",
+                "summary": "Overall Testing the feature and Feedbacks resoluti",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3312",
+                "summary": "Soumyajit: Internal Meeting, Discussion & Document",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6419",
+                "summary": "Claim: Overall File merge and Testing with QA Rele",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITM-393",
+                "summary": "During testing it was observed that changes made f",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Souvik Mondal",
+            "active_issues": 26,
+            "issues": [
+              {
+                "key": "WCUP-1684",
+                "summary": "Design: Duplicate and increase Legion offer",
+                "status": "Backlog",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "LPP-3303",
+                "summary": "Souvik: Internal Meeting, Discussion & Documentati",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "WCUP-1662",
+                "summary": "BFCM: Blackout Theme Integration for Home Page",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "WCUP-1664",
+                "summary": "BFCM: Blackout Theme Integration for Funnel Pages ",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "WCUP-1681",
+                "summary": "Add Breadcrumb Navigation to Content Pages",
+                "status": "Backlog",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Kevin Sanchez",
+            "active_issues": 24,
+            "issues": [
+              {
+                "key": "PDT-297",
+                "summary": "Challenged Commissions Changes",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-666",
+                "summary": "Seller Listing Coverage Testing Checklist",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-533",
+                "summary": "maintenance project qa",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-418",
+                "summary": "PROP-MAN (app)",
+                "status": "In Design",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-624",
+                "summary": "(CUPO) PROP MAN",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Abinash Padhi",
+            "active_issues": 23,
+            "issues": [
+              {
+                "key": "LMA-682",
+                "summary": "Add the missing fields in Edit company - TEPO App",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITM-382",
+                "summary": "Under refer a friend program on cupo app please fi",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LMA-742",
+                "summary": "Upload file action - Mobile",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LMA-436",
+                "summary": "CUPO Tab Responsiveness",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LMA-765",
+                "summary": "DSM, Internal meeting and discussion | Sprint 38 -",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Manas Maity",
+            "active_issues": 22,
+            "issues": [
+              {
+                "key": "WCUP-1553",
+                "summary": "Request for Automated SYCO Communications Sent to ",
+                "status": "Backlog",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "SYC-3420",
+                "summary": "Motili API Integration - Doc",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6461",
+                "summary": "Update Lead SMS Copy for American Legion Leads",
+                "status": "Pushed To Live",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "LPP-3301",
+                "summary": "Manas: Internal Meeting, Discussion & Documentatio",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6445",
+                "summary": "Sprint 60 : Housekeeping records from SYCO and Lib",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Aush Paul",
+            "active_issues": 21,
+            "issues": [
+              {
+                "key": "LER-596",
+                "summary": "[LER-549] Lead Status Module - Default/Notify/Emai",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LER-606",
+                "summary": "[LER-549] Result Codes Module - User Assignment > ",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LER-563",
+                "summary": "Inquiry on Inbox feature",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITLT-45",
+                "summary": "User is able to open, Close Contact in Caller Port",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITLT-84",
+                "summary": "First Name and Last Name Fields Accept \u201c@\u201d in the ",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Remy Stern-Beckerman",
+            "active_issues": 20,
+            "issues": [
+              {
+                "key": "PDT-672",
+                "summary": "VR Module",
+                "status": "Ready For Review",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-658",
+                "summary": "Liberty Capital ",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-674",
+                "summary": "Restrict selling previous policy versions in AZ",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-681",
+                "summary": "Flagging claims",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-603",
+                "summary": "Email Templates for Prop Man Emails",
+                "status": "Ready For Review",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Swarup Das",
+            "active_issues": 19,
+            "issues": [
+              {
+                "key": "SYC-6416",
+                "summary": "Claim: For V4 policies the Built-In Microwave will",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3311",
+                "summary": "Swarup: Internal Meeting, Discussion & Documentati",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-5681",
+                "summary": "Redesign Of Returns Module  (Money in/out project)",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-5676",
+                "summary": "Ticket Payout Enhancement",
+                "status": "Go-Live Ready",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6454",
+                "summary": "For V4 [Salt Water] Pool and/or Spa will be used a",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Xavier Goyco",
+            "active_issues": 18,
+            "issues": [
+              {
+                "key": "GD-376",
+                "summary": "Send Options/Quote CUPO",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "GD-310",
+                "summary": "TEPO APP intro Needed on TEPO Website and Technici",
+                "status": "Awaiting Feedback",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "GD-237",
+                "summary": "Updating Message Notifications on CUPO",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "GD-361",
+                "summary": "Mock-up: Update NerdWallet Logo Usage & Quote on W",
+                "status": "Awaiting Feedback",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "GD-377",
+                "summary": "Marketing/brochures with a co-branding of Liberty ",
+                "status": "Need More Information",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Nasirul Sk",
+            "active_issues": 16,
+            "issues": [
+              {
+                "key": "SYC-5296",
+                "summary": "Updating the Upload File Action",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-5479",
+                "summary": "Upload Files Log",
+                "status": "QA",
+                "priority": "P4 - Low Priority"
+              },
+              {
+                "key": "SYC-6360",
+                "summary": "Add Affiliate dropdown to SYCO Sales:Create Policy",
+                "status": "QA",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LPP-3308",
+                "summary": "Nasirul: Internal Meeting, Discussion & Documentat",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-6465",
+                "summary": "Remove Daniel@ and Jefferson from Manual Payment U",
+                "status": "Done",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "overloaded"
+          },
+          {
+            "assignee": "Sandeep Kumar Giri",
+            "active_issues": 15,
+            "issues": [
+              {
+                "key": "LMA-766",
+                "summary": "DSM, Internal meeting and discussion | Sprint 38 -",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LMA-749",
+                "summary": "V4 Policy Alignment",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LMA-760",
+                "summary": "Adjustments in TEPO module to Support V4 Policies ",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LMA-757",
+                "summary": "Update Policy Creation Logic in On-boarding module",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LMA-759",
+                "summary": "Adjust Add more Coverage and Extend Coverage Flow ",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Soudip Bhattacharya",
+            "active_issues": 15,
+            "issues": [
+              {
+                "key": "LPP-3338",
+                "summary": "SYC-6373",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3323",
+                "summary": "SYC-6372",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3319",
+                "summary": "Soudip: Internal Meeting, Discussion & Documentati",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3360",
+                "summary": "SYC-6261",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3359",
+                "summary": "SYC-6058",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Yael Harosh",
+            "active_issues": 14,
+            "issues": [
+              {
+                "key": "GD-185",
+                "summary": "Updating the Ticket Status History ",
+                "status": "Awaiting Feedback",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-586",
+                "summary": "WORK ORDER + VENDOR PACKET MODIFICATIONS",
+                "status": "In Design",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-256",
+                "summary": "Implementing changes to the Shift management modul",
+                "status": "Ready For Review",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LTG-508",
+                "summary": "ATS - Comms Hub",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-680",
+                "summary": "Update Haul Away Label from \u2018Fully Covered\u2019 in Ema",
+                "status": "Ready For Review",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Roie Cohen",
+            "active_issues": 14,
+            "issues": [
+              {
+                "key": "PDT-545",
+                "summary": "WIP Comments",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-664",
+                "summary": "Add email from SYC-6116 to the communication modul",
+                "status": "Ready For Review",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-611",
+                "summary": "Send Options Email",
+                "status": "Ready For Review",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-399",
+                "summary": "WORK CONFIRMATION CUPO/SYCO/TEPO",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-474",
+                "summary": "Implement Disputed Transactions into SYCO",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Raysa Dey",
+            "active_issues": 12,
+            "issues": [
+              {
+                "key": "LPP-3272",
+                "summary": "Tech Documentations \u2014 Human Resources Management \u2014",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3314",
+                "summary": "Raysa: Internal Meeting, Discussion & Documentatio",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-2722",
+                "summary": "Tech Documentations \u2014 Salesperson Management \u2014 Sal",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3260",
+                "summary": "Tech Documentations \u2014 Human Resources Management \u2014",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-2742",
+                "summary": "Tech Documentations \u2014 Policies Management \u2014 Realti",
+                "status": "QA",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Sujan Kundu",
+            "active_issues": 12,
+            "issues": [
+              {
+                "key": "LPP-3356",
+                "summary": "VP-163 Testing and Release",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3315",
+                "summary": "Sujan: Internal Meeting, Discussion & Documentatio",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3357",
+                "summary": "LMA-776 Testing and Release",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3351",
+                "summary": "CP-21 Testing and Release",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3320",
+                "summary": "Daily Stand-Up Call and Meetings",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Dipak Bari",
+            "active_issues": 10,
+            "issues": [
+              {
+                "key": "LMA-647",
+                "summary": "[SYC-1768] - CUPO APP - Incorrect Status Message D",
+                "status": "UAT",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LMA-544",
+                "summary": "SYC-1768 | Implementation over CUPO mobile App",
+                "status": "UAT",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LMA-545",
+                "summary": "SYC-1768 | Implementation over TEPO mobile App",
+                "status": "Go-Live Ready",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "LMA-773",
+                "summary": "Emergency tasks - Sprint 38",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LMA-767",
+                "summary": "DSM, Internal meeting and discussion | Sprint 38 -",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Gopi",
+            "active_issues": 9,
+            "issues": [
+              {
+                "key": "AT-180",
+                "summary": "Integration of email inbox in Pulse Application",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-181",
+                "summary": "Prepare the API Contract",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-186",
+                "summary": "Prepare the 10 Gmail inboxes credentials",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-185",
+                "summary": "Documentation",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-179",
+                "summary": "Pulse Email Inbox",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Vinod Lalchandani",
+            "active_issues": 9,
+            "issues": [
+              {
+                "key": "PDT-665",
+                "summary": "Add 'Work Number' in manage salesperson and change",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-618",
+                "summary": "Include more metrics in technician ranking calcula",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-562",
+                "summary": "Enhancement: Extend \"Send Quote\" Functionality to ",
+                "status": "In Design",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-616",
+                "summary": "Technician ranking enhancements",
+                "status": "Backlog",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "PDT-259",
+                "summary": "Integrate WEX into the payout to supplier:",
+                "status": "Backlog",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Corey Wright",
+            "active_issues": 8,
+            "issues": [
+              {
+                "key": "GD-360",
+                "summary": "Guardian Gazette Q3 2025",
+                "status": "Awaiting Feedback",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "GD-373",
+                "summary": "BFCM 2025 - Ad Image for Bing",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "GD-372",
+                "summary": "BFCM 2025 - Ad Images for Google",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "GD-371",
+                "summary": "BFCM 2025 - Ad Images for Facebook",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "GD-328",
+                "summary": "LHG-Branded LinkedIn Profile Banner (Employee Use)",
+                "status": "Awaiting Feedback",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Athivatech Dev Team",
+            "active_issues": 8,
+            "issues": [
+              {
+                "key": "AT-187",
+                "summary": "Add WebSocket capabilities to get the notification",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-182",
+                "summary": "Develop the Initial Version of the APIs",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-177",
+                "summary": "User Timezone Specific Report",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-176",
+                "summary": "User Exclusion logic in Report",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-175",
+                "summary": "Add NonResponseReport and AgentTransferQueueReport",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "adarsh",
+            "active_issues": 8,
+            "issues": [
+              {
+                "key": "LPP-3334",
+                "summary": "Internal Meting and DSM  ",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3318",
+                "summary": "Adarsh: Internal Meeting, Discussion & Documentati",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3358",
+                "summary": "SYC-5681",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3337",
+                "summary": "SYC-6372",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3336",
+                "summary": "SYC-4589",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Pramod Kumar Pradhan",
+            "active_issues": 7,
+            "issues": [
+              {
+                "key": "PDT-684",
+                "summary": "Liberty Capital",
+                "status": "Backlog",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "SYC-6472",
+                "summary": "[SYC-1768] - Customer not receiving availability p",
+                "status": "Canceled",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3300",
+                "summary": "Sprint-60: Internal Meeting, Discussion & Document",
+                "status": "To Do",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "LPP-3299",
+                "summary": "Sprint-60: Bugs & Emergency Tasks",
+                "status": "To Do",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "LPP-3010",
+                "summary": "Sprint-56: Internal Meeting, Discussion & Document",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Vikram Kumar",
+            "active_issues": 6,
+            "issues": [
+              {
+                "key": "LTG-564",
+                "summary": "Sprint 29: Enhancement Task with QA Feedback and A",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-557",
+                "summary": "Admin Portal: Trigger Events Master Data CRUD Oper",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-562",
+                "summary": "Sprint 29: Client calls, internal meetings - Vikra",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-556",
+                "summary": "Admin Portal: Module and Sub-Modules Master Data C",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-561",
+                "summary": "Notification: Need to implement a cronjob for noti",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Karthika Sadaiyappan",
+            "active_issues": 6,
+            "issues": [
+              {
+                "key": "AT-128",
+                "summary": "TEPO chatbot materials",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-118",
+                "summary": "Analysing prod technician related call transcripts",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-96",
+                "summary": "Integrate knowledgebase response review list in Pu",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-160",
+                "summary": "Browser Link to be sent via Chatbot  based on cust",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-169",
+                "summary": "L&D Technician knowledge Base Review",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Abraham Ludwick",
+            "active_issues": 6,
+            "issues": [
+              {
+                "key": "ASV-20",
+                "summary": "Reso AI Language Suggestion Module",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-627",
+                "summary": "Agent Tenure and Transition Tracking (Still workin",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-593",
+                "summary": "Email Reimbursement Notification Update",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-583",
+                "summary": "CLONE - Reimbursement Pitch Automation",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-321",
+                "summary": "Reimbursement Pitch Automation",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "normal"
+          },
+          {
+            "assignee": "Akansha Gupta",
+            "active_issues": 5,
+            "issues": [
+              {
+                "key": "PDT-685",
+                "summary": "Mass SMS Request for American Legion Leads",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-588",
+                "summary": "Integration of KPI Reports onto the BIC -- Phase 1",
+                "status": "Ready For Review",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-654",
+                "summary": "Requesting Credit Card transaction count per state",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-620",
+                "summary": "Daily Audience Cleanup for Upcoming Email Campaign",
+                "status": "In Progress",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "PDT-454",
+                "summary": "Service Request acceptance source",
+                "status": "Backlog",
+                "priority": "P1 - Critical"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Mamata ojha",
+            "active_issues": 5,
+            "issues": [
+              {
+                "key": "LPP-3341",
+                "summary": "SYC-6372 Testing & released",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3316",
+                "summary": "Mamata: Internal Meeting, Discussion & Documentati",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3325",
+                "summary": "Emergency Task Testing and Release",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3324",
+                "summary": "Daily Stand-Up Call and Meetings",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LPP-3348",
+                "summary": "SYC-6373 Testing & released",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Sowmya N",
+            "active_issues": 5,
+            "issues": [
+              {
+                "key": "AT-119",
+                "summary": "Process Optimization - Agents Negotiation with Tec",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-152",
+                "summary": "Data Engineering - Fetch the Connect User IDs of A",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-131",
+                "summary": "Live Reso & Delivery Resolution Acceptance Alert",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-47",
+                "summary": "Contact Flow Analysis",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-141",
+                "summary": "Agent Dashboard - Impact Analysis of Department ta",
+                "status": "Canceled",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Goutham Chadalla Manjunath",
+            "active_issues": 4,
+            "issues": [
+              {
+                "key": "ASV-6",
+                "summary": "Research on Broker Insurance Validation",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ASV-17",
+                "summary": "Driver's license scanning and verification",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ASV-16",
+                "summary": "Automation of FULL GLI Extraction and Broker Valid",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "SYC-5794",
+                "summary": "Document Validation Logic for Required and Optiona",
+                "status": "Done",
+                "priority": "P1 - Critical"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "matthew simmons",
+            "active_issues": 4,
+            "issues": [
+              {
+                "key": "PDT-667",
+                "summary": "Price Module ",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-535",
+                "summary": "Installation ADM ",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-645",
+                "summary": "Recall claims excluded from automatic rescind ",
+                "status": "Ready For Review",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-614",
+                "summary": "Customer feedback on technicians ",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Avi Moshaiev",
+            "active_issues": 4,
+            "issues": [
+              {
+                "key": "ASV-3",
+                "summary": "AI Legal Assistance System",
+                "status": "To Do",
+                "priority": "P4 - Low Priority"
+              },
+              {
+                "key": "ASV-8",
+                "summary": "An AI Authorizations Agent for taking diagnostics ",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ASV-5",
+                "summary": "LHG hiring plans and operational growth.",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-639",
+                "summary": "AT Jira - Capture Billing Collections",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Nino Tabagari",
+            "active_issues": 4,
+            "issues": [
+              {
+                "key": "PDT-558",
+                "summary": "Implement Technician Referral Program Functionalit",
+                "status": "In Design",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-77",
+                "summary": "Premium Income_Money in",
+                "status": "Backlog",
+                "priority": "P1 - Critical"
+              },
+              {
+                "key": "PDT-551",
+                "summary": "Incorporate OTP for authentication, as it is neces",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-550",
+                "summary": "Mapping policy statues",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Sree Peddinti",
+            "active_issues": 3,
+            "issues": [
+              {
+                "key": "ASV-14",
+                "summary": "BR - Integrating Pro-Series into BR_Recommendation",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ASV-15",
+                "summary": "Deliver Reso - Working on Work flow and Research",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ASV-18",
+                "summary": "Deliver Resolution- Email - Writing Reso AI-Genera",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Dinesh Ramasamy",
+            "active_issues": 3,
+            "issues": [
+              {
+                "key": "AT-183",
+                "summary": "Build the initial version of the UI in Pulse Appli",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-123",
+                "summary": "Pulse | Add user management",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-171",
+                "summary": "Enable OTP authentication for customer bot",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Peter Lin",
+            "active_issues": 3,
+            "issues": [
+              {
+                "key": "PDT-657",
+                "summary": "Encompass API Review ",
+                "status": "Ready For Review",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-165",
+                "summary": "Call Log Business Logic in LEROI",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-282",
+                "summary": "Look into SendBlue",
+                "status": "Canceled",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Monisha Krish",
+            "active_issues": 3,
+            "issues": [
+              {
+                "key": "AT-161",
+                "summary": "Adding an option in Amazon Connect for customers o",
+                "status": "In Progress",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "AT-8",
+                "summary": "Call Tracking Solution: Enhancing Call Tracking fo",
+                "status": "Backlog",
+                "priority": "P2 - High Priority"
+              },
+              {
+                "key": "AT-2",
+                "summary": "Ensure Complete Capture of Google (GA4) Client ID ",
+                "status": "Archived",
+                "priority": "P2 - High Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Leyla Allaberganova",
+            "active_issues": 3,
+            "issues": [
+              {
+                "key": "PDT-431",
+                "summary": "Payroll Scoring Module ",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-425",
+                "summary": "Job Management: Job publishing Options (Screening ",
+                "status": "Pending Design",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-324",
+                "summary": "Email Automation: Create CRUD API to create Email ",
+                "status": "To Do",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Om Patil",
+            "active_issues": 2,
+            "issues": [
+              {
+                "key": "LTG-401",
+                "summary": "Notification and its preference Implementation ",
+                "status": "Finished Design",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "LTG-358",
+                "summary": "Phase 1 - Admin Module (Basic Functions)",
+                "status": "Finished Design",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Sathya Nallasamy",
+            "active_issues": 2,
+            "issues": [
+              {
+                "key": "AT-174",
+                "summary": "Quicksight Report on Chatbot FAQ Response Status",
+                "status": "UAT",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-40",
+                "summary": "Analyzing the Call Routing Queue for Cost Optimiza",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Ashok Mondal",
+            "active_issues": 2,
+            "issues": [
+              {
+                "key": "LPP-3317",
+                "summary": "Ashok: Internal Meeting, Discussion & Documentatio",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "ITM-60",
+                "summary": "All the bugs found in Test Automation will logged ",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Miguel Urena",
+            "active_issues": 2,
+            "issues": [
+              {
+                "key": "PDT-455",
+                "summary": "Replace standard cancellation email with new offer",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "PDT-308",
+                "summary": "Have the disputes in the tech payout module",
+                "status": "Canceled",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Gurukarthikeyan Poovalingam",
+            "active_issues": 2,
+            "issues": [
+              {
+                "key": "AT-66",
+                "summary": "Establish Earned Premium trend and Monitor",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              },
+              {
+                "key": "AT-132",
+                "summary": "Claim Log Validation",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "vaishnudurai.a",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "AT-184",
+                "summary": "Test the entire application",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Aishwarya Udayabhanu",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "ASV-4",
+                "summary": "Discuss Technician Biometric Data Consent Agreemen",
+                "status": "In Progress",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Jorge Jimenez",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "PDT-373",
+                "summary": "Revisit the Idea to Build a QA Module in SYCO",
+                "status": "Backlog",
+                "priority": "P4 - Low Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Fredrick Lepcha",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "WCUP-930",
+                "summary": "Updating a CUPO video",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Sasidharan Srinivasan",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "AT-157",
+                "summary": "link calls to tickets/polices/reasons of calls in ",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Crystal Robinson",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "PDT-565",
+                "summary": "Water Heater Diagnostic Changes ",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Alex Sheplyakov",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "SYC-6244",
+                "summary": "Mailpit Integration for UAT environment",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Jesus Baez",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "LMA-522",
+                "summary": "Add Entire House/Home Option to HVAC / Heating Cla",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Tanushree Roy",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "WCUP-1073",
+                "summary": "Implement Apple Pay & Paypal (Express checkout & P",
+                "status": "Backlog",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          },
+          {
+            "assignee": "Gunal R",
+            "active_issues": 1,
+            "issues": [
+              {
+                "key": "AT-89",
+                "summary": "Research into transferring calls to arbitrary user",
+                "status": "Canceled",
+                "priority": "P3 - Medium Priority"
+              }
+            ],
+            "load_category": "underutilized"
+          }
+        ],
+        "summary": {
+          "total_team_members": 64,
+          "total_assigned_issues": 997,
+          "unassigned_issues": 82,
+          "avg_workload": 15.6,
+          "overloaded_count": 21,
+          "underutilized_count": 27
+        }
+      }
+    },
+    {
+      "test": "Cycle Time Analysis",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "overall": {
+          "avg_cycle_time_days": 17.5,
+          "median_cycle_time_days": 7,
+          "total_resolved": 1545,
+          "fastest_resolution_days": 0,
+          "slowest_resolution_days": 511
+        },
+        "by_project": [
+          {
+            "project_id": "10084",
+            "avg_cycle_time_days": 120.8,
+            "issues_resolved": 24
+          },
+          {
+            "project_id": "10150",
+            "avg_cycle_time_days": 53.6,
+            "issues_resolved": 36
+          },
+          {
+            "project_id": "10003",
+            "avg_cycle_time_days": 38.3,
+            "issues_resolved": 240
+          },
+          {
+            "project_id": "10062",
+            "avg_cycle_time_days": 36.6,
+            "issues_resolved": 47
+          },
+          {
+            "project_id": "10078",
+            "avg_cycle_time_days": 16.8,
+            "issues_resolved": 58
+          },
+          {
+            "project_id": "10047",
+            "avg_cycle_time_days": 16.8,
+            "issues_resolved": 131
+          },
+          {
+            "project_id": "10049",
+            "avg_cycle_time_days": 13.3,
+            "issues_resolved": 51
+          },
+          {
+            "project_id": "10004",
+            "avg_cycle_time_days": 13.0,
+            "issues_resolved": 56
+          },
+          {
+            "project_id": "10008",
+            "avg_cycle_time_days": 10.0,
+            "issues_resolved": 2
+          },
+          {
+            "project_id": "10250",
+            "avg_cycle_time_days": 9.6,
+            "issues_resolved": 74
+          }
+        ],
+        "by_type": [
+          {
+            "issue_type": "Enhancement",
+            "avg_cycle_time_days": 73.2,
+            "issues_resolved": 41
+          },
+          {
+            "issue_type": "Story",
+            "avg_cycle_time_days": 69.1,
+            "issues_resolved": 116
+          },
+          {
+            "issue_type": "Epic",
+            "avg_cycle_time_days": 27.2,
+            "issues_resolved": 60
+          },
+          {
+            "issue_type": "New Feature",
+            "avg_cycle_time_days": 19.1,
+            "issues_resolved": 12
+          },
+          {
+            "issue_type": "Task",
+            "avg_cycle_time_days": 18.2,
+            "issues_resolved": 425
+          },
+          {
+            "issue_type": "Bug",
+            "avg_cycle_time_days": 8.0,
+            "issues_resolved": 441
+          },
+          {
+            "issue_type": "Subtask",
+            "avg_cycle_time_days": 7.9,
+            "issues_resolved": 69
+          },
+          {
+            "issue_type": "Sub-task",
+            "avg_cycle_time_days": 6.0,
+            "issues_resolved": 381
+          }
+        ],
+        "by_assignee": [
+          {
+            "assignee": "Tanushree Roy",
+            "avg_cycle_time_days": 339.0,
+            "issues_resolved": 1
+          },
+          {
+            "assignee": "Yael Harosh",
+            "avg_cycle_time_days": 151.4,
+            "issues_resolved": 5
+          },
+          {
+            "assignee": "Karthick",
+            "avg_cycle_time_days": 144.0,
+            "issues_resolved": 1
+          },
+          {
+            "assignee": "vaishnudurai.a",
+            "avg_cycle_time_days": 143.0,
+            "issues_resolved": 1
+          },
+          {
+            "assignee": "Kevin Sanchez",
+            "avg_cycle_time_days": 142.0,
+            "issues_resolved": 2
+          },
+          {
+            "assignee": "Remy Stern-Beckerman",
+            "avg_cycle_time_days": 140.0,
+            "issues_resolved": 3
+          },
+          {
+            "assignee": "Karthika Sadaiyappan",
+            "avg_cycle_time_days": 133.0,
+            "issues_resolved": 3
+          },
+          {
+            "assignee": "Peter Lin",
+            "avg_cycle_time_days": 111.5,
+            "issues_resolved": 2
+          },
+          {
+            "assignee": "Sar",
+            "avg_cycle_time_days": 98.5,
+            "issues_resolved": 2
+          },
+          {
+            "assignee": "Xavier Goyco",
+            "avg_cycle_time_days": 79.3,
+            "issues_resolved": 14
+          },
+          {
+            "assignee": "Miguel Urena",
+            "avg_cycle_time_days": 77.0,
+            "issues_resolved": 1
+          },
+          {
+            "assignee": "Gopi",
+            "avg_cycle_time_days": 62.5,
+            "issues_resolved": 4
+          },
+          {
+            "assignee": "Vinod Lalchandani",
+            "avg_cycle_time_days": 60.8,
+            "issues_resolved": 5
+          },
+          {
+            "assignee": "Raysa Dey",
+            "avg_cycle_time_days": 59.1,
+            "issues_resolved": 30
+          },
+          {
+            "assignee": "Dinesh Ramasamy",
+            "avg_cycle_time_days": 58.0,
+            "issues_resolved": 3
+          }
+        ]
+      }
+    },
+    {
+      "test": "Velocity Trends",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "velocity_by_week": [
+          {
+            "week": "2025-W34",
+            "issues_completed": 120
+          },
+          {
+            "week": "2025-W35",
+            "issues_completed": 41
+          },
+          {
+            "week": "2025-W36",
+            "issues_completed": 136
+          },
+          {
+            "week": "2025-W37",
+            "issues_completed": 49
+          },
+          {
+            "week": "2025-W38",
+            "issues_completed": 133
+          },
+          {
+            "week": "2025-W39",
+            "issues_completed": 96
+          },
+          {
+            "week": "2025-W40",
+            "issues_completed": 71
+          },
+          {
+            "week": "2025-W41",
+            "issues_completed": 116
+          },
+          {
+            "week": "2025-W42",
+            "issues_completed": 202
+          },
+          {
+            "week": "2025-W43",
+            "issues_completed": 83
+          },
+          {
+            "week": "2025-W44",
+            "issues_completed": 305
+          },
+          {
+            "week": "2025-W45",
+            "issues_completed": 124
+          },
+          {
+            "week": "2025-W46",
+            "issues_completed": 16
+          }
+        ],
+        "summary": {
+          "avg_weekly_velocity": 114.8,
+          "recent_4_week_avg": 132.0,
+          "trend": "increasing",
+          "total_weeks_analyzed": 13,
+          "highest_velocity_week": {
+            "week": "2025-W44",
+            "issues_completed": 305
+          },
+          "lowest_velocity_week": {
+            "week": "2025-W46",
+            "issues_completed": 16
+          }
+        }
+      }
+    },
+    {
+      "test": "Cost of Delay Analysis",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "total_cost_of_delay": 7588601.0,
+        "total_issues_analyzed": 900,
+        "breakdown": {
+          "stale_issues": {
+            "count": 316,
+            "total_cost": 6131995.0,
+            "top_issues": [
+              {
+                "key": "PDT-183",
+                "summary": "Spiff Redesign :'(",
+                "assignee": "Kevin Sanchez",
+                "days_stale": 89.5,
+                "cost_of_delay": 53676.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-324",
+                "summary": "Make multiple same day payments register as one for commissi",
+                "assignee": "Kevin Sanchez",
+                "days_stale": 89.5,
+                "cost_of_delay": 53675.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-500",
+                "summary": "Sales Cm - for olo's remove the initial payment from countin",
+                "assignee": "Kevin Sanchez",
+                "days_stale": 89.5,
+                "cost_of_delay": 53674.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-212",
+                "summary": "Invoice status filter",
+                "assignee": "Remy Stern-Beckerman",
+                "days_stale": 88.2,
+                "cost_of_delay": 52940.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-229",
+                "summary": "Information grabbing ",
+                "assignee": "Remy Stern-Beckerman",
+                "days_stale": 88.2,
+                "cost_of_delay": 52936.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-288",
+                "summary": "Reso, P&P, and RA enhancement pass (INTERNAL)",
+                "assignee": "Remy Stern-Beckerman",
+                "days_stale": 81.3,
+                "cost_of_delay": 48787.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-559",
+                "summary": "SYC-5080 CAP Checklist",
+                "assignee": "Kevin Sanchez",
+                "days_stale": 81.2,
+                "cost_of_delay": 48741.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-563",
+                "summary": "HVAC test for TEPO website",
+                "assignee": "Kevin Sanchez",
+                "days_stale": 80.2,
+                "cost_of_delay": 48121.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-170",
+                "summary": "Linked Progression Status for Dispatched & STA ",
+                "assignee": "Remy Stern-Beckerman",
+                "days_stale": 74.4,
+                "cost_of_delay": 44623.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-526",
+                "summary": "Talk to david regarding commission points",
+                "assignee": "Kevin Sanchez",
+                "days_stale": 69.4,
+                "cost_of_delay": 41625.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "PDT-350",
+                "summary": "Name Verification (CUPO)",
+                "assignee": "Abraham Ludwick",
+                "days_stale": 90.1,
+                "cost_of_delay": 41465.0,
+                "team": "Unknown Team"
+              },
+              {
+                "key": "PDT-546",
+                "summary": "Auto-populate New RA Request Form",
+                "assignee": "Unassigned",
+                "days_stale": 90.1,
+                "cost_of_delay": 41465.0,
+                "team": "Unassigned"
+              },
+              {
+                "key": "AT-40",
+                "summary": "Analyzing the Call Routing Queue for Cost Optimization",
+                "assignee": "Sathya Nallasamy",
+                "days_stale": 88.5,
+                "cost_of_delay": 40711.0,
+                "team": "Unknown Team"
+              },
+              {
+                "key": "AT-67",
+                "summary": "Ansible - Mark as Handled ",
+                "assignee": "Athivatech Dev Team",
+                "days_stale": 88.5,
+                "cost_of_delay": 40701.0,
+                "team": "Unknown Team"
+              },
+              {
+                "key": "AT-110",
+                "summary": "Customer follow up along with the categorization data.",
+                "assignee": "Unassigned",
+                "days_stale": 88.5,
+                "cost_of_delay": 40700.0,
+                "team": "Unassigned"
+              }
+            ]
+          },
+          "unassigned_issues": {
+            "count": 82,
+            "total_cost": 1406295.0,
+            "top_issues": [
+              {
+                "key": "SEO-186",
+                "summary": "top 10 high intent pages",
+                "days_unassigned": 201.4,
+                "cost_of_delay": 92663.0
+              },
+              {
+                "key": "LTG-345",
+                "summary": "Phase 1 - ATS (Applicant Tracking System) Basic Functions",
+                "days_unassigned": 188.2,
+                "cost_of_delay": 86570.0
+              },
+              {
+                "key": "AT-110",
+                "summary": "Customer follow up along with the categorization data.",
+                "days_unassigned": 143.6,
+                "cost_of_delay": 66075.0
+              },
+              {
+                "key": "PDT-546",
+                "summary": "Auto-populate New RA Request Form",
+                "days_unassigned": 90.3,
+                "cost_of_delay": 41551.0
+              },
+              {
+                "key": "LTG-507",
+                "summary": "Resume Upload - Application Received   Trigger event no long",
+                "days_unassigned": 84.7,
+                "cost_of_delay": 38962.0
+              },
+              {
+                "key": "PDT-556",
+                "summary": "Unresponsive Tech automations not working for TN:AC-19888314",
+                "days_unassigned": 82.4,
+                "cost_of_delay": 37892.0
+              },
+              {
+                "key": "SEO-213",
+                "summary": "Coupon Page",
+                "days_unassigned": 82.3,
+                "cost_of_delay": 37848.0
+              },
+              {
+                "key": "PDT-567",
+                "summary": "Potential partner Avalara for the Sales Tax project",
+                "days_unassigned": 76.4,
+                "cost_of_delay": 35124.0
+              },
+              {
+                "key": "SEO-214",
+                "summary": "Rob Liberty Home Guard suggestions (comp comparisons)",
+                "days_unassigned": 75.4,
+                "cost_of_delay": 34682.0
+              },
+              {
+                "key": "SEO-215",
+                "summary": "Rob mentions",
+                "days_unassigned": 75.4,
+                "cost_of_delay": 34675.0
+              },
+              {
+                "key": "PDT-574",
+                "summary": "Underwriting Enhancement",
+                "days_unassigned": 67.3,
+                "cost_of_delay": 30955.0
+              },
+              {
+                "key": "SEO-228",
+                "summary": "How to Troubleshoot and Repair a Washing Machine That Won\u2019t ",
+                "days_unassigned": 63.3,
+                "cost_of_delay": 29117.0
+              },
+              {
+                "key": "SEO-231",
+                "summary": "How to Seal Windows and Doors to Reduce Energy Bills and Sta",
+                "days_unassigned": 63.3,
+                "cost_of_delay": 29116.0
+              },
+              {
+                "key": "SEO-230",
+                "summary": "Essential Chimney Maintenance Tips: Safety, Cleaning, and Re",
+                "days_unassigned": 63.3,
+                "cost_of_delay": 29116.0
+              },
+              {
+                "key": "SEO-229",
+                "summary": "Average Life of a Furnace: Signs It\u2019s Time to Replace & Main",
+                "days_unassigned": 63.3,
+                "cost_of_delay": 29116.0
+              }
+            ]
+          },
+          "waiting_blocked_issues": {
+            "count": 9,
+            "total_cost": 50311.0,
+            "top_issues": [
+              {
+                "key": "LTG-425",
+                "summary": "Job Management: Job publishing Options (Screening Question) ",
+                "status": "Pending Design",
+                "assignee": "Leyla Allaberganova",
+                "days_waiting": 77.9,
+                "cost_of_delay": 35832.0,
+                "team": "Unknown Team"
+              },
+              {
+                "key": "GD-341",
+                "summary": "Create breadcrumb mockups across the site (reference: AHS ex",
+                "status": "Awaiting Feedback",
+                "assignee": "Xavier Goyco",
+                "days_waiting": 7.2,
+                "cost_of_delay": 4323.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "GD-123",
+                "summary": "Employee Pamphlet Design",
+                "status": "Awaiting Feedback",
+                "assignee": "Corey Wright",
+                "days_waiting": 7.2,
+                "cost_of_delay": 4317.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "GD-338",
+                "summary": "Re-doing the work order doc",
+                "status": "Awaiting Feedback",
+                "assignee": "Corey Wright",
+                "days_waiting": 4.3,
+                "cost_of_delay": 2606.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "GD-328",
+                "summary": "LHG-Branded LinkedIn Profile Banner (Employee Use)",
+                "status": "Awaiting Feedback",
+                "assignee": "Corey Wright",
+                "days_waiting": 4.3,
+                "cost_of_delay": 2566.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "GD-361",
+                "summary": "Mock-up: Update NerdWallet Logo Usage & Quote on Website per",
+                "status": "Awaiting Feedback",
+                "assignee": "Xavier Goyco",
+                "days_waiting": 0.4,
+                "cost_of_delay": 227.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "GD-185",
+                "summary": "Updating the Ticket Status History ",
+                "status": "Awaiting Feedback",
+                "assignee": "Yael Harosh",
+                "days_waiting": 0.4,
+                "cost_of_delay": 164.0,
+                "team": "Unknown Team"
+              },
+              {
+                "key": "GD-310",
+                "summary": "TEPO APP intro Needed on TEPO Website and Technician Apply P",
+                "status": "Awaiting Feedback",
+                "assignee": "Xavier Goyco",
+                "days_waiting": 0.3,
+                "cost_of_delay": 151.0,
+                "team": "US Team (Internal)"
+              },
+              {
+                "key": "GD-360",
+                "summary": "Guardian Gazette Q3 2025",
+                "status": "Awaiting Feedback",
+                "assignee": "Corey Wright",
+                "days_waiting": 0.2,
+                "cost_of_delay": 125.0,
+                "team": "US Team (Internal)"
+              }
+            ]
+          }
+        },
+        "daily_burn_rate": 84318.0,
+        "insights": [
+          "\ud83d\udd34 CRITICAL: $7.6M in preventable costs identified",
+          "\ud83d\udcb0 Biggest opportunity: $6132K from 316 stale issues"
+        ],
+        "cost_assumptions": {
+          "us_developer_daily": 600.0,
+          "sundew_contractor_daily": 320.0,
+          "blended_daily": 460.0
+        }
+      }
+    },
+    {
+      "test": "Team ROI Analysis",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "period_days": 90,
+        "team_roi": {
+          "sundew": {
+            "team_label": "Sundew (Contractors)",
+            "issues_completed": 1366,
+            "total_cost": 6442939.0,
+            "value_delivered": 20134184.0,
+            "roi_percentage": 312.5,
+            "cost_per_issue": 4717.0,
+            "value_per_issue": 14740.0
+          },
+          "us": {
+            "team_label": "US Team (Internal)",
+            "issues_completed": 55,
+            "total_cost": 1468676.0,
+            "value_delivered": 2447793.0,
+            "roi_percentage": 166.7,
+            "cost_per_issue": 26703.0,
+            "value_per_issue": 44505.0
+          }
+        },
+        "insights": [
+          "\ud83d\udca1 Sundew team delivers 1.9x better ROI than US team",
+          "\ud83d\udcb0 Consider shifting more work to Sundew for improved cost efficiency"
+        ]
+      }
+    },
+    {
+      "test": "Opportunity Cost Analysis",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "period_days": 90,
+        "total_developers": 171,
+        "potential_revenue": 15390000.0,
+        "actual_revenue": 4635000.0,
+        "opportunity_cost": 10755000.0,
+        "utilization_rate": 30.1,
+        "insights": [
+          "\ud83d\udd34 CRITICAL: Only 30% team utilization - $10.8M opportunity loss"
+        ]
+      }
+    },
+    {
+      "test": "Bottleneck Impact Score",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "period_days": 30,
+        "total_bottleneck_cost": 7588601.0,
+        "ranked_bottlenecks": [
+          {
+            "category": "Stale Issues",
+            "count": 316,
+            "total_cost": 6131995.0,
+            "avg_cost_per_issue": 19405.0,
+            "recovery_potential": 6131995.0
+          },
+          {
+            "category": "Unassigned Issues",
+            "count": 82,
+            "total_cost": 1406295.0,
+            "avg_cost_per_issue": 17150.0,
+            "recovery_potential": 1406295.0
+          },
+          {
+            "category": "Waiting Blocked Issues",
+            "count": 9,
+            "total_cost": 50311.0,
+            "avg_cost_per_issue": 5590.0,
+            "recovery_potential": 50311.0
+          }
+        ],
+        "quick_wins": [
+          {
+            "action": "Auto-assign 82 unassigned issues",
+            "recovery_potential": 1406295.0,
+            "effort": "1 day",
+            "roi": "Very High"
+          },
+          {
+            "action": "Clear 9 waiting/blocked issues",
+            "recovery_potential": 50311.0,
+            "effort": "1 week",
+            "roi": "High"
+          },
+          {
+            "action": "Address 316 stale issues",
+            "recovery_potential": 6131995.0,
+            "effort": "2 weeks",
+            "roi": "High"
+          }
+        ]
+      }
+    },
+    {
+      "test": "Financial Summary",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "cost_of_delay_30d": {
+          "total": 7588601.0,
+          "daily_burn": 252953.0,
+          "top_insights": [
+            "\ud83d\udd34 CRITICAL: $7.6M in preventable costs identified",
+            "\ud83d\udcb0 Biggest opportunity: $6132K from 316 stale issues"
+          ]
+        },
+        "cost_of_delay_90d": {
+          "total": 7588601.0,
+          "daily_burn": 84318.0
+        },
+        "team_roi": {
+          "sundew": {
+            "team_label": "Sundew (Contractors)",
+            "issues_completed": 1366,
+            "total_cost": 6442939.0,
+            "value_delivered": 20134184.0,
+            "roi_percentage": 312.5,
+            "cost_per_issue": 4717.0,
+            "value_per_issue": 14740.0
+          },
+          "us": {
+            "team_label": "US Team (Internal)",
+            "issues_completed": 55,
+            "total_cost": 1468676.0,
+            "value_delivered": 2447793.0,
+            "roi_percentage": 166.7,
+            "cost_per_issue": 26703.0,
+            "value_per_issue": 44505.0
+          }
+        },
+        "opportunity_cost": {
+          "total": 10755000.0,
+          "utilization_rate": 30.1
+        },
+        "top_bottlenecks": [
+          {
+            "category": "Stale Issues",
+            "count": 316,
+            "total_cost": 6131995.0,
+            "avg_cost_per_issue": 19405.0,
+            "recovery_potential": 6131995.0
+          },
+          {
+            "category": "Unassigned Issues",
+            "count": 82,
+            "total_cost": 1406295.0,
+            "avg_cost_per_issue": 17150.0,
+            "recovery_potential": 1406295.0
+          },
+          {
+            "category": "Waiting Blocked Issues",
+            "count": 9,
+            "total_cost": 50311.0,
+            "avg_cost_per_issue": 5590.0,
+            "recovery_potential": 50311.0
+          }
+        ],
+        "quick_wins": [
+          {
+            "action": "Auto-assign 82 unassigned issues",
+            "recovery_potential": 1406295.0,
+            "effort": "1 day",
+            "roi": "Very High"
+          },
+          {
+            "action": "Clear 9 waiting/blocked issues",
+            "recovery_potential": 50311.0,
+            "effort": "1 week",
+            "roi": "High"
+          },
+          {
+            "action": "Address 316 stale issues",
+            "recovery_potential": 6131995.0,
+            "effort": "2 weeks",
+            "roi": "High"
+          }
+        ],
+        "total_recoverable_value": 7588601.0
+      }
+    },
+    {
+      "test": "Auto-Assign Preview",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "success": true,
+        "action": "auto_assign",
+        "issues_to_assign": 82,
+        "assignment_plan": [
+          {
+            "issue_key": "PDT-686",
+            "issue_summary": "Allow Sales Managers to edit Primary Salesperson",
+            "suggested_assignee": "Slack",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ASV-22",
+            "issue_summary": "ID Verification liveness fail with upload and debug",
+            "suggested_assignee": "Trello",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ASV-21",
+            "issue_summary": "BIC Planning",
+            "suggested_assignee": "Sarbajit Das",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ITM-405",
+            "issue_summary": " [Salt Water] Pool and/or Spa Add-ons Not showing in store s",
+            "suggested_assignee": "Jira Service Management Widget",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ITM-400",
+            "issue_summary": "SYC:6372",
+            "suggested_assignee": "Confluence Analytics (System)",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ASV-7",
+            "issue_summary": "Selfie button and re-trigger endpoint for retry selfie",
+            "suggested_assignee": "Trello",
+            "current_workload": 1
+          },
+          {
+            "issue_key": "ASV-19",
+            "issue_summary": "BR Recommendation",
+            "suggested_assignee": "Automation for Jira",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "AT-166",
+            "issue_summary": "Summarize Policy Notes and Highlight the Pinned Notes",
+            "suggested_assignee": "Statuspage for Jira",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-682",
+            "issue_summary": "Customer self-service upgrade to V4",
+            "suggested_assignee": "Chat Notifications",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-683",
+            "issue_summary": "SYCO upgrade to V4 action",
+            "suggested_assignee": "OKR Board for jira by oBoard",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-617",
+            "issue_summary": "Display technician metrics in TEPO",
+            "suggested_assignee": "Atlassian Assist",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-646",
+            "issue_summary": "Update to supplier Module ",
+            "suggested_assignee": "Jira Spreadsheets",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-679",
+            "issue_summary": "Add Expired Documents pop up to app",
+            "suggested_assignee": "Jira Outlook",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "SYC-6452",
+            "issue_summary": "Dispute Module - Technician Payouts",
+            "suggested_assignee": "GitLab for Jira (gitlab.com)",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-673",
+            "issue_summary": "Modify ACH Transaction Recording Logic: Record Payments Sequ",
+            "suggested_assignee": "Opsgenie Incident Timeline",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "LTG-546",
+            "issue_summary": "Jobs Hub",
+            "suggested_assignee": "Opsgenie Incident Timeline",
+            "current_workload": 1
+          },
+          {
+            "issue_key": "PDT-641",
+            "issue_summary": "Enhancing the logic for SYC-2787",
+            "suggested_assignee": "System",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "LTG-345",
+            "issue_summary": "Phase 1 - ATS (Applicant Tracking System) Basic Functions",
+            "suggested_assignee": "anwesha",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "LTG-558",
+            "issue_summary": "Admin Portal: Benefits, Comp Packages, Licenses Category Mas",
+            "suggested_assignee": "Microsoft Teams for Confluence Cloud",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "LTG-566",
+            "issue_summary": "Admin Portal: Employment Type Master Data CRUD Operation Com",
+            "suggested_assignee": "Sar",
+            "current_workload": 0
+          }
+        ],
+        "workload_distribution": {
+          "Slack": 1,
+          "Trello": 2,
+          "Sarbajit Das": 1,
+          "Jira Service Management Widget": 1,
+          "Confluence Analytics (System)": 1,
+          "Automation for Jira": 1,
+          "Statuspage for Jira": 1,
+          "Chat Notifications": 1,
+          "OKR Board for jira by oBoard": 1,
+          "Atlassian Assist": 1,
+          "Jira Spreadsheets": 1,
+          "Jira Outlook": 1,
+          "GitLab for Jira (gitlab.com)": 1,
+          "Opsgenie Incident Timeline": 2,
+          "System": 1,
+          "anwesha": 1,
+          "Microsoft Teams for Confluence Cloud": 1,
+          "Sar": 1,
+          "Karthick": 1,
+          "Microsoft Teams for Jira Cloud": 1,
+          "Jefferson Stabille": 1,
+          "Rachel": 1,
+          "Azalea Rodgers": 1,
+          "Jumana Khalil": 1,
+          "Atlas for Jira Cloud": 1,
+          "Jayanta Paul": 1,
+          "Proforma Migrator": 1,
+          "Arnab Mukherjee": 1,
+          "Emma Liebentritt": 1,
+          "Shi Qiao": 1,
+          "Ben": 1,
+          "David B. Moreno": 1,
+          "Matthew Mendez": 1,
+          "Code Accessibility Checker": 1,
+          "Jorge Smith": 1,
+          "Vulnerable Dependency Updater": 1,
+          "David Benenhaley": 1,
+          "Feature Flag Cleaner": 1,
+          "Jonar Martinez": 1,
+          "Work Item Planner": 1,
+          "Customer Insights": 1,
+          "User Manual Writer": 1,
+          "Bug Report Assistant": 1,
+          "[TEMPLATE] ASCII art generator": 1,
+          "ChatGPT Wrapper App": 1,
+          "Dashboard Insights": 1,
+          "Rob Johnson": 1,
+          "Service Request Helper": 1,
+          "Nino Green": 1,
+          "Decision director": 1,
+          "Elijah Jhonson": 1,
+          "Marta Nakani": 1,
+          "Wei Lin": 1,
+          "Jira Theme Analyzer": 1,
+          "Ops Guide": 1,
+          "Rovo Expert": 1,
+          "Sar_Old_User": 1,
+          "Emma Simmons": 1,
+          "Issue Organizer": 1,
+          "Lauren Davis": 1,
+          "Kendra Oglivie": 1,
+          "OKR Generator": 1,
+          "Rickelmi Zabala": 1,
+          "Puspita Dewanjee": 1,
+          "Unit Test Creator": 1,
+          "Angel Ortiz": 1,
+          "Karol Gil": 1,
+          "Victor Campos": 1,
+          "Carlos Richards": 1,
+          "Natalie Nozadze": 1,
+          "Migration Config Changer": 1,
+          "Teamwork Trivia Host": 1,
+          "Code Observer": 1,
+          "Team Recap": 1,
+          "Blocker Checker": 1,
+          "Raiko Santamarina": 1,
+          "Ed Sanchez": 1,
+          "Global Translator": 1,
+          "Transcript Insights Reporter": 1,
+          "Amar Kumar": 1,
+          "Release Notes Drafter": 0,
+          "Readiness Checker": 0,
+          "Suvam Roy": 0,
+          "ray.rodriguez": 0,
+          "Social Media Writer": 0,
+          "Service Triage": 0,
+          "Jira Workflow Wizard": 0,
+          "Job Listing Assistant": 0,
+          "Basic Coding Agent": 0,
+          "Holly Agard": 0,
+          "reginald.rasch": 0,
+          "Code Documentation Writer": 0,
+          "Workflow builder": 0,
+          "Root Cause Analyzer": 0,
+          "Angel Vall": 0,
+          "Sri Vishnu Subramaniyam": 0,
+          "Progress Tracker": 0,
+          "Product Requirements Guide": 0,
+          "Comms Crafter": 0,
+          "Victoria Sarno": 0,
+          "Marketplace App Expert": 0,
+          "Code Standardizer": 0,
+          "Alana Hansen": 0,
+          "Omar Darboe": 0,
+          "Mia Ricci": 0,
+          "Jie Yan Song": 0,
+          "Automation Bot": 0,
+          "Example Customer": 0,
+          "Jorge Jimenez": 1,
+          "Crystal Robinson": 1,
+          "Alex Sheplyakov": 1,
+          "Gunal R": 1,
+          "Sasidharan Srinivasan": 1,
+          "vaishnudurai.a": 1,
+          "Aishwarya Udayabhanu": 1,
+          "Gurukarthikeyan Poovalingam": 2,
+          "Miguel Urena": 2,
+          "Om Patil": 2,
+          "Ashok Mondal": 2,
+          "Sathya Nallasamy": 2,
+          "Monisha Krish": 3,
+          "Leyla Allaberganova": 3,
+          "Sree Peddinti": 3,
+          "Peter Lin": 3,
+          "Goutham Chadalla Manjunath": 3,
+          "Dinesh Ramasamy": 3,
+          "Avi Moshaiev": 4,
+          "matthew simmons": 4,
+          "Nino Tabagari": 4,
+          "Mamata ojha": 5,
+          "Nasirul Sk": 5,
+          "Akansha Gupta": 5,
+          "Sowmya N": 5,
+          "Karthika Sadaiyappan": 6,
+          "Abraham Ludwick": 6,
+          "Vikram Kumar": 6,
+          "Pramod Kumar Pradhan": 7,
+          "adarsh": 7,
+          "Athivatech Dev Team": 8,
+          "Corey Wright": 8,
+          "Gopi": 9,
+          "Vinod Lalchandani": 9,
+          "Dipak Bari": 10,
+          "Swarup Das": 11,
+          "Amit Kumar Gupta": 12,
+          "Sujan Kundu": 12,
+          "Raysa Dey": 12,
+          "Manas Maity": 13,
+          "Souvik Mondal": 13,
+          "Roie Cohen": 14,
+          "Yael Harosh": 14,
+          "Soumyajit Ball": 15,
+          "Soudip Bhattacharya": 15,
+          "Arpan Sarkar": 16,
+          "Sandeep Kumar Giri": 17,
+          "Xavier Goyco": 18,
+          "Remy Stern-Beckerman": 20,
+          "Aush Paul": 22,
+          "Abinash Padhi": 23,
+          "Kevin Sanchez": 24,
+          "Somnath Haldar": 24,
+          "Sayon Jana": 29,
+          "Ratul Rakshit": 31,
+          "Arup Mondal": 32,
+          "Riju Ghosh": 32,
+          "Ashok Bagdi": 34,
+          "Pritam Bhattacharyya": 44,
+          "Shahrukh Khan": 68,
+          "ANUP": 107
+        },
+        "estimated_roi": {
+          "recovery_potential": 1131600,
+          "time_to_implement": "1 day",
+          "risk_level": "Low"
+        }
+      }
+    },
+    {
+      "test": "Auto-Assign Execute (Dry Run)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "success": true,
+        "action": "auto_assign",
+        "issues_to_assign": 82,
+        "assignment_plan": [
+          {
+            "issue_key": "PDT-686",
+            "issue_summary": "Allow Sales Managers to edit Primary Salesperson",
+            "suggested_assignee": "Slack",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ASV-22",
+            "issue_summary": "ID Verification liveness fail with upload and debug",
+            "suggested_assignee": "Trello",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ASV-21",
+            "issue_summary": "BIC Planning",
+            "suggested_assignee": "Sarbajit Das",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ITM-405",
+            "issue_summary": " [Salt Water] Pool and/or Spa Add-ons Not showing in store s",
+            "suggested_assignee": "Jira Service Management Widget",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ITM-400",
+            "issue_summary": "SYC:6372",
+            "suggested_assignee": "Confluence Analytics (System)",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "ASV-7",
+            "issue_summary": "Selfie button and re-trigger endpoint for retry selfie",
+            "suggested_assignee": "Trello",
+            "current_workload": 1
+          },
+          {
+            "issue_key": "ASV-19",
+            "issue_summary": "BR Recommendation",
+            "suggested_assignee": "Automation for Jira",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "AT-166",
+            "issue_summary": "Summarize Policy Notes and Highlight the Pinned Notes",
+            "suggested_assignee": "Statuspage for Jira",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-682",
+            "issue_summary": "Customer self-service upgrade to V4",
+            "suggested_assignee": "Chat Notifications",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-683",
+            "issue_summary": "SYCO upgrade to V4 action",
+            "suggested_assignee": "OKR Board for jira by oBoard",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-617",
+            "issue_summary": "Display technician metrics in TEPO",
+            "suggested_assignee": "Atlassian Assist",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-646",
+            "issue_summary": "Update to supplier Module ",
+            "suggested_assignee": "Jira Spreadsheets",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-679",
+            "issue_summary": "Add Expired Documents pop up to app",
+            "suggested_assignee": "Jira Outlook",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "SYC-6452",
+            "issue_summary": "Dispute Module - Technician Payouts",
+            "suggested_assignee": "GitLab for Jira (gitlab.com)",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "PDT-673",
+            "issue_summary": "Modify ACH Transaction Recording Logic: Record Payments Sequ",
+            "suggested_assignee": "Opsgenie Incident Timeline",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "LTG-546",
+            "issue_summary": "Jobs Hub",
+            "suggested_assignee": "Opsgenie Incident Timeline",
+            "current_workload": 1
+          },
+          {
+            "issue_key": "PDT-641",
+            "issue_summary": "Enhancing the logic for SYC-2787",
+            "suggested_assignee": "System",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "LTG-345",
+            "issue_summary": "Phase 1 - ATS (Applicant Tracking System) Basic Functions",
+            "suggested_assignee": "anwesha",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "LTG-558",
+            "issue_summary": "Admin Portal: Benefits, Comp Packages, Licenses Category Mas",
+            "suggested_assignee": "Microsoft Teams for Confluence Cloud",
+            "current_workload": 0
+          },
+          {
+            "issue_key": "LTG-566",
+            "issue_summary": "Admin Portal: Employment Type Master Data CRUD Operation Com",
+            "suggested_assignee": "Sar",
+            "current_workload": 0
+          }
+        ],
+        "workload_distribution": {
+          "Slack": 1,
+          "Trello": 2,
+          "Sarbajit Das": 1,
+          "Jira Service Management Widget": 1,
+          "Confluence Analytics (System)": 1,
+          "Automation for Jira": 1,
+          "Statuspage for Jira": 1,
+          "Chat Notifications": 1,
+          "OKR Board for jira by oBoard": 1,
+          "Atlassian Assist": 1,
+          "Jira Spreadsheets": 1,
+          "Jira Outlook": 1,
+          "GitLab for Jira (gitlab.com)": 1,
+          "Opsgenie Incident Timeline": 2,
+          "System": 1,
+          "anwesha": 1,
+          "Microsoft Teams for Confluence Cloud": 1,
+          "Sar": 1,
+          "Karthick": 1,
+          "Microsoft Teams for Jira Cloud": 1,
+          "Jefferson Stabille": 1,
+          "Rachel": 1,
+          "Azalea Rodgers": 1,
+          "Jumana Khalil": 1,
+          "Atlas for Jira Cloud": 1,
+          "Jayanta Paul": 1,
+          "Proforma Migrator": 1,
+          "Arnab Mukherjee": 1,
+          "Emma Liebentritt": 1,
+          "Shi Qiao": 1,
+          "Ben": 1,
+          "David B. Moreno": 1,
+          "Matthew Mendez": 1,
+          "Code Accessibility Checker": 1,
+          "Jorge Smith": 1,
+          "Vulnerable Dependency Updater": 1,
+          "David Benenhaley": 1,
+          "Feature Flag Cleaner": 1,
+          "Jonar Martinez": 1,
+          "Work Item Planner": 1,
+          "Customer Insights": 1,
+          "User Manual Writer": 1,
+          "Bug Report Assistant": 1,
+          "[TEMPLATE] ASCII art generator": 1,
+          "ChatGPT Wrapper App": 1,
+          "Dashboard Insights": 1,
+          "Rob Johnson": 1,
+          "Service Request Helper": 1,
+          "Nino Green": 1,
+          "Decision director": 1,
+          "Elijah Jhonson": 1,
+          "Marta Nakani": 1,
+          "Wei Lin": 1,
+          "Jira Theme Analyzer": 1,
+          "Ops Guide": 1,
+          "Rovo Expert": 1,
+          "Sar_Old_User": 1,
+          "Emma Simmons": 1,
+          "Issue Organizer": 1,
+          "Lauren Davis": 1,
+          "Kendra Oglivie": 1,
+          "OKR Generator": 1,
+          "Rickelmi Zabala": 1,
+          "Puspita Dewanjee": 1,
+          "Unit Test Creator": 1,
+          "Angel Ortiz": 1,
+          "Karol Gil": 1,
+          "Victor Campos": 1,
+          "Carlos Richards": 1,
+          "Natalie Nozadze": 1,
+          "Migration Config Changer": 1,
+          "Teamwork Trivia Host": 1,
+          "Code Observer": 1,
+          "Team Recap": 1,
+          "Blocker Checker": 1,
+          "Raiko Santamarina": 1,
+          "Ed Sanchez": 1,
+          "Global Translator": 1,
+          "Transcript Insights Reporter": 1,
+          "Amar Kumar": 1,
+          "Release Notes Drafter": 0,
+          "Readiness Checker": 0,
+          "Suvam Roy": 0,
+          "ray.rodriguez": 0,
+          "Social Media Writer": 0,
+          "Service Triage": 0,
+          "Jira Workflow Wizard": 0,
+          "Job Listing Assistant": 0,
+          "Basic Coding Agent": 0,
+          "Holly Agard": 0,
+          "reginald.rasch": 0,
+          "Code Documentation Writer": 0,
+          "Workflow builder": 0,
+          "Root Cause Analyzer": 0,
+          "Angel Vall": 0,
+          "Sri Vishnu Subramaniyam": 0,
+          "Progress Tracker": 0,
+          "Product Requirements Guide": 0,
+          "Comms Crafter": 0,
+          "Victoria Sarno": 0,
+          "Marketplace App Expert": 0,
+          "Code Standardizer": 0,
+          "Alana Hansen": 0,
+          "Omar Darboe": 0,
+          "Mia Ricci": 0,
+          "Jie Yan Song": 0,
+          "Automation Bot": 0,
+          "Example Customer": 0,
+          "Jorge Jimenez": 1,
+          "Crystal Robinson": 1,
+          "Alex Sheplyakov": 1,
+          "Gunal R": 1,
+          "Sasidharan Srinivasan": 1,
+          "vaishnudurai.a": 1,
+          "Aishwarya Udayabhanu": 1,
+          "Gurukarthikeyan Poovalingam": 2,
+          "Miguel Urena": 2,
+          "Om Patil": 2,
+          "Ashok Mondal": 2,
+          "Sathya Nallasamy": 2,
+          "Monisha Krish": 3,
+          "Leyla Allaberganova": 3,
+          "Sree Peddinti": 3,
+          "Peter Lin": 3,
+          "Goutham Chadalla Manjunath": 3,
+          "Dinesh Ramasamy": 3,
+          "Avi Moshaiev": 4,
+          "matthew simmons": 4,
+          "Nino Tabagari": 4,
+          "Mamata ojha": 5,
+          "Nasirul Sk": 5,
+          "Akansha Gupta": 5,
+          "Sowmya N": 5,
+          "Karthika Sadaiyappan": 6,
+          "Abraham Ludwick": 6,
+          "Vikram Kumar": 6,
+          "Pramod Kumar Pradhan": 7,
+          "adarsh": 7,
+          "Athivatech Dev Team": 8,
+          "Corey Wright": 8,
+          "Gopi": 9,
+          "Vinod Lalchandani": 9,
+          "Dipak Bari": 10,
+          "Swarup Das": 11,
+          "Amit Kumar Gupta": 12,
+          "Sujan Kundu": 12,
+          "Raysa Dey": 12,
+          "Manas Maity": 13,
+          "Souvik Mondal": 13,
+          "Roie Cohen": 14,
+          "Yael Harosh": 14,
+          "Soumyajit Ball": 15,
+          "Soudip Bhattacharya": 15,
+          "Arpan Sarkar": 16,
+          "Sandeep Kumar Giri": 17,
+          "Xavier Goyco": 18,
+          "Remy Stern-Beckerman": 20,
+          "Aush Paul": 22,
+          "Abinash Padhi": 23,
+          "Kevin Sanchez": 24,
+          "Somnath Haldar": 24,
+          "Sayon Jana": 29,
+          "Ratul Rakshit": 31,
+          "Arup Mondal": 32,
+          "Riju Ghosh": 32,
+          "Ashok Bagdi": 34,
+          "Pritam Bhattacharyya": 44,
+          "Shahrukh Khan": 68,
+          "ANUP": 107
+        },
+        "estimated_roi": {
+          "recovery_potential": 1131600,
+          "time_to_implement": "1 day",
+          "risk_level": "Low"
+        },
+        "executed": false,
+        "message": "Dry run completed. No changes made to Jira."
+      }
+    },
+    {
+      "test": "Bulk Archive Preview",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "success": true,
+        "action": "bulk_archive",
+        "issues_to_archive": 2,
+        "issues_preview": [
+          {
+            "key": "PDT-546",
+            "summary": "Auto-populate New RA Request Form",
+            "assignee": null,
+            "days_stale": 90.1,
+            "cost_of_delay": 41465.0
+          },
+          {
+            "key": "PDT-350",
+            "summary": "Name Verification (CUPO)",
+            "assignee": "Abraham Ludwick",
+            "days_stale": 90.1,
+            "cost_of_delay": 41465.0
+          }
+        ],
+        "estimated_roi": {
+          "recovery_potential": 82931.0,
+          "time_to_implement": "2 hours",
+          "risk_level": "Medium"
+        }
+      }
+    },
+    {
+      "test": "Bulk Archive Execute (Dry Run)",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "success": true,
+        "action": "bulk_archive",
+        "issues_to_archive": 2,
+        "issues_preview": [
+          {
+            "key": "PDT-546",
+            "summary": "Auto-populate New RA Request Form",
+            "assignee": null,
+            "days_stale": 90.1,
+            "cost_of_delay": 41465.0
+          },
+          {
+            "key": "PDT-350",
+            "summary": "Name Verification (CUPO)",
+            "assignee": "Abraham Ludwick",
+            "days_stale": 90.1,
+            "cost_of_delay": 41465.0
+          }
+        ],
+        "estimated_roi": {
+          "recovery_potential": 82931.0,
+          "time_to_implement": "2 hours",
+          "risk_level": "Medium"
+        },
+        "executed": false,
+        "message": "Dry run completed. No changes made to Jira."
+      }
+    },
+    {
+      "test": "Rebalance Workload Preview",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "success": true,
+        "action": "rebalance_workload",
+        "average_workload": 12.8,
+        "overloaded_assignees": [
+          {
+            "assignee": "ANUP",
+            "current_workload": 107,
+            "excess": 94.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Shahrukh Khan",
+            "current_workload": 68,
+            "excess": 55.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Pritam Bhattacharyya",
+            "current_workload": 44,
+            "excess": 31.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Ashok Bagdi",
+            "current_workload": 34,
+            "excess": 21.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Riju Ghosh",
+            "current_workload": 32,
+            "excess": 19.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Arup Mondal",
+            "current_workload": 32,
+            "excess": 19.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Ratul Rakshit",
+            "current_workload": 31,
+            "excess": 18.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Sayon Jana",
+            "current_workload": 29,
+            "excess": 16.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Kevin Sanchez",
+            "current_workload": 24,
+            "excess": 11.0,
+            "team": "US Team (Internal)"
+          },
+          {
+            "assignee": "Somnath Haldar",
+            "current_workload": 24,
+            "excess": 11.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Abinash Padhi",
+            "current_workload": 23,
+            "excess": 10.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Aush Paul",
+            "current_workload": 22,
+            "excess": 9.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Remy Stern-Beckerman",
+            "current_workload": 20,
+            "excess": 7.0,
+            "team": "US Team (Internal)"
+          }
+        ],
+        "underloaded_assignees": [
+          {
+            "assignee": "vaishnudurai.a",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Aishwarya Udayabhanu",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Jorge Jimenez",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Fredrick Lepcha",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Sasidharan Srinivasan",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Crystal Robinson",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Alex Sheplyakov",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Jesus Baez",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Tanushree Roy",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Gunal R",
+            "current_workload": 1,
+            "capacity": 12.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Om Patil",
+            "current_workload": 2,
+            "capacity": 11.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Sathya Nallasamy",
+            "current_workload": 2,
+            "capacity": 11.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Ashok Mondal",
+            "current_workload": 2,
+            "capacity": 11.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Miguel Urena",
+            "current_workload": 2,
+            "capacity": 11.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Gurukarthikeyan Poovalingam",
+            "current_workload": 2,
+            "capacity": 11.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Goutham Chadalla Manjunath",
+            "current_workload": 3,
+            "capacity": 10.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Sree Peddinti",
+            "current_workload": 3,
+            "capacity": 10.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Dinesh Ramasamy",
+            "current_workload": 3,
+            "capacity": 10.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Peter Lin",
+            "current_workload": 3,
+            "capacity": 10.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Monisha Krish",
+            "current_workload": 3,
+            "capacity": 10.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Leyla Allaberganova",
+            "current_workload": 3,
+            "capacity": 10.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "matthew simmons",
+            "current_workload": 4,
+            "capacity": 9.0,
+            "team": "US Team (Internal)"
+          },
+          {
+            "assignee": "Avi Moshaiev",
+            "current_workload": 4,
+            "capacity": 9.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Nino Tabagari",
+            "current_workload": 4,
+            "capacity": 9.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Akansha Gupta",
+            "current_workload": 5,
+            "capacity": 8.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Mamata ojha",
+            "current_workload": 5,
+            "capacity": 8.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Nasirul Sk",
+            "current_workload": 5,
+            "capacity": 8.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Sowmya N",
+            "current_workload": 5,
+            "capacity": 8.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Vikram Kumar",
+            "current_workload": 6,
+            "capacity": 7.0,
+            "team": "Sundew (Contractors)"
+          },
+          {
+            "assignee": "Karthika Sadaiyappan",
+            "current_workload": 6,
+            "capacity": 7.0,
+            "team": "Unknown Team"
+          },
+          {
+            "assignee": "Abraham Ludwick",
+            "current_workload": 6,
+            "capacity": 7.0,
+            "team": "Unknown Team"
+          }
+        ],
+        "rebalance_suggestions": "Redistribute 321.0 issues from overloaded to underloaded team members",
+        "estimated_roi": {
+          "recovery_potential": 535023.0,
+          "time_to_implement": "1 day",
+          "risk_level": "Low"
+        }
+      }
+    }
+  ]
+}

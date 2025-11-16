@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: quantumsprout-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MONGO_URL
+        sync: false
+      - key: DB_NAME
+        value: quantumsprout_production
+      - key: JIRA_CLIENT_ID
+        value: RNFKijJKbUERvmQoyjrwKcjtmwtPj5Gg
+      - key: JIRA_CLIENT_SECRET
+        sync: false
+      - key: JIRA_ENC_KEY
+        sync: false
+      - key: JIRA_REDIRECT_URI
+        sync: false
+      - key: FRONTEND_URL
+        value: https://quantumsprout.com
+      - key: CORS_ORIGINS
+        value: https://quantumsprout.com,http://localhost:3000
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: LOG_LEVEL
+        value: INFO
+

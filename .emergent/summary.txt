@@ -1,0 +1,79 @@
+<analysis>
+The trajectory documents the development of a Jira productivity analytics tool, Quantum Sprout, from a basic concept to a near-production-ready, multi-tenant SaaS application. The development was highly iterative, driven by a demanding user who pushed for enterprise-grade features, robust functionality, and a high-quality user experience.
+
+Key development arcs include:
+1.  **Core Feature Development:** Building a FastAPI/React application to connect to Jira via OAuth, sync data, and perform financial analysis (Cost of Delay, ROI).
+2.  **Multi-Tenancy & Auth:** A major refactor to implement a full user authentication system (JWT) and ensure strict data isolation between different users and their Jira connections.
+3.  **Bug Fixing & Iteration:** A significant portion of the work involved debugging critical issues, particularly with the Atlassian OAuth flow (token refresh, invalid callback URLs, multi-site configuration) and core application logic (filters not working, data not loading).
+4.  **UI/UX Refinement:** The user repeatedly expressed dissatisfaction with the UI, leading to multiple redesigns of the landing page to achieve a billion-dollar aesthetic inspired by provided examples.
+5.  **Final Push for Quality:** The last phase focused on achieving 100% functionality, culminating in the identification and fix of a critical bug where backend data queries were not correctly using date filters.
+
+The user's language is English. The next agent must respond in English.
+</analysis>
+
+<product_requirements>
+The product, Quantum Sprout, is an enterprise-grade SaaS application designed to help CEOs and managers diagnose productivity bottlenecks within their engineering teams by analyzing Jira data.
+
+**Core Problem:** The user, a CEO, needs to understand the financial impact of team inefficiencies, identify specific blockers (both process and people), and receive actionable recommendations.
+
+**Key Features Implemented:**
+*   **User Authentication:** A full signup/login system using JWT for multi-tenant user and data isolation.
+*   **Jira Integration:** Seamless OAuth 2.0 flow to connect a user's Jira instance, with an automated initial data sync.
+*   **Investigation Dashboard:** A multi-tab dashboard displaying:
+    *   **Financial Impact:** Calculates and displays the Cost of Delay (CoD) and ROI of engineering work, based on user-provided company-specific rates.
+    *   **Bottleneck Analysis:** Features a rule-based engine and a visual flow graph to identify handoff, capacity, and stale work bottlenecks. It also identifies which individuals are blocking specific products.
+    *   **Team & Trend Analysis:** Compares performance of different teams (e.g., US vs. Sundew contractors) and historical productivity trends.
+*   **CEO Report Export:** A one-click feature to generate a downloadable PowerPoint (.pptx) executive summary.
+*   **Enterprise-Ready:** Includes legal pages (Terms/Privacy), a 12-hour data retention policy, and a premium landing page.
+</product_requirements>
+
+<key_technical_concepts>
+- **Backend:** FastAPI (Python), Motor (async MongoDB driver), Pydantic (data validation).
+- **Frontend:** React, Shadcn UI, Tailwind CSS.
+- **Authentication:** JWT (JSON Web Tokens) with  for password hashing and  for token management.
+- **Database:** MongoDB, using UUIDs for identifiers.
+- **API & Integrations:** Atlassian Jira Cloud REST API (v3), OAuth 2.0 (3-legged authorization flow).
+- **Financial Modeling:** Cost of Delay (CoD) and ROI calculations based on the Theory of Constraints and Flow Metrics.
+</key_technical_concepts>
+
+<code_architecture>
+The application follows a standard modern web architecture with a React single-page application frontend communicating with a FastAPI backend, which in turn interacts with a MongoDB database and the external Jira API.
+
+**Directory Structure:**
+
+- ****
+    - **Importance:** The main entry point for the FastAPI application, defining all API routes, including authentication, data sync, and the various analytics endpoints. It orchestrates all backend services.
+    - **Changes:** Heavily modified to add JWT-based user authentication, multi-tenant data isolation logic on all endpoints, and routes for new features like the RBBF and People Bottleneck Analyzer.
+- ****
+    - **Importance:** The root React component that manages application-level state, including user authentication, Jira connection status, and routing. It determines whether to show the landing page, auth forms, onboarding flow, or the main dashboard.
+    - **Changes:** Significantly refactored to handle the full multi-tenant user lifecycle: checking for a JWT, verifying the user, checking for a Jira connection, and routing to the appropriate view (e.g.,  or ). The race condition in its  was a critical bug that was fixed.
+- ****
+    - **Importance:** Contains the core logic for calculating the Cost of Delay (CoD) and other financial metrics. This is a primary value-driver for the product.
+    - **Changes:** Updated to use user-provided company-specific rates (Sundew vs. US employees). **Most recently, it was fixed to correctly apply a  to its database queries, which resolved the non-functional data filters.**
+- ****
+    - **Importance:** The main user-facing dashboard, containing the tabbed interface for all analytics views.
+    - **Changes:** Updated to include the new visual bottleneck finders (, ) and executive time period filters. All data-fetching calls were updated to pass the user's JWT.
+- ****
+    - **Importance:** The final, investor-grade landing page, created after multiple redesigns based on direct user feedback and reference websites.
+    - **Changes:** Created to provide a professional, polished front door to the application, matching the dark theme of the product UI.
+</code_architecture>
+
+<pending_tasks>
+- All explicitly requested tasks have been addressed. The previous work concluded with fixing a critical bug.
+</pending_tasks>
+
+<current_work>
+The most recent task was to fix a critical bug reported by the user: the financial insight filters on the dashboard were not working. While the UI buttons for different time periods (e.g., This Quarter, This Year) would highlight correctly, the financial data displayed on the dashboard remained unchanged.
+
+**Investigation and Fix:**
+1.  The AI engineer confirmed the bug using screenshots, showing that the data did not update when filters were clicked.
+2.  The engineer then debugged the backend and identified the root cause in . The MongoDB query fetching issues for CoD calculation was missing the logic to filter by the  provided by the frontend. It was always fetching all active issues, regardless of the selected time period.
+3.  The following code in  was fixed:
+    
+4.  After applying this fix, the AI engineer restarted the backend. The very last action was to begin testing the fix by taking new screenshots of the dashboard to verify that the data now changes when different filters are selected.
+</current_work>
+
+<optional_next_step>
+Verify the filter fix by taking screenshots. Click This Quarter and This Year on the dashboard and confirm the financial data changes, proving the backend fix is effective.
+</optional_next_step>
+

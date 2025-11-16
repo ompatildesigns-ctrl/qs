@@ -1,0 +1,133 @@
+{
+  "summary": "CRITICAL BUG FOUND: OAuth → Onboarding → Sync chain broken. The /api/sync/start endpoint IGNORES connection_id parameter, causing sync to fail for new OAuth connections. User completes OAuth successfully, connection is created in database, but OnboardingFlow never triggers sync because backend endpoint uses find_one({}) to get ANY connection instead of the specific connection_id passed by frontend.",
+  
+  "backend_issues": {
+    "critical_bugs": [
+      {
+        "endpoint": "/api/sync/start",
+        "file": "/app/backend/server.py",
+        "line": "865-880",
+        "issue": "Endpoint does NOT accept connection_id parameter. Line 876: 'connection = await db.jira_connections.find_one({}, {\"_id\": 0})' gets ANY connection, completely ignoring the connection_id passed in URL query params by OnboardingFlow.jsx line 42",
+        "impact": "BLOCKS entire OAuth → Onboarding → Sync flow. User connects Jira successfully, connection exists in DB, but sync never starts because backend looks for wrong connection",
+        "fix_priority": "CRITICAL",
+        "expected_behavior": "Endpoint should accept connection_id as Query parameter: 'connection_id: str = Query(...)' and use it: 'find_one({\"id\": connection_id})'",
+        "actual_behavior": "Endpoint has no connection_id parameter, uses find_one({}) which returns first connection in database (may not exist or be wrong one)",
+        "reproduction_steps": [
+          "1. New user signs up with demo@quantumsprout.com",
+          "2. User clicks Connect Jira → OAuth flow starts",
+          "3. OAuth callback creates connection in database ✅",
+          "4. Frontend redirects with ?oauth_success=true&connection_id=XXX ✅",
+          "5. App.js detects params, sets appState='onboarding' ✅",
+          "6. OnboardingFlow mounts, calls /api/sync/start?connection_id=XXX ✅",
+          "7. Backend IGNORES connection_id parameter ❌",
+          "8. Backend uses find_one({}) to get ANY connection ❌",
+          "9. If database empty or has different connection, returns 404 ❌",
+          "10. OnboardingFlow shows error, user sees no data ❌"
+        ],
+        "fix_code_example": "async def start_sync(\n    background_tasks: BackgroundTasks,\n    connection_id: str = Query(..., description='Connection ID to sync'),\n    mode: str = Query('full', regex='^(full|delta)$'),\n    user_id: str = Depends(get_current_user_id)\n):\n    # Get specific connection for this user\n    connection = await db.jira_connections.find_one({\n        'id': connection_id,\n        'user_id': user_id\n    }, {'_id': 0})\n    if not connection:\n        raise HTTPException(status_code=404, detail='Connection not found')"
+      }
+    ],
+    "secondary_issues": [
+      {
+        "endpoint": "/api/sync/start",
+        "issue": "No authentication required - any user could trigger sync for any connection",
+        "fix_priority": "HIGH",
+        "security_risk": "Endpoint should require JWT token and verify user owns the connection"
+      }
+    ]
+  },
+  
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "component": "OnboardingFlow.jsx",
+        "line": "42",
+        "issue": "Frontend correctly passes connection_id in URL: '/api/sync/start?connection_id=${connectionId}' but backend endpoint doesn't accept this parameter",
+        "affected_flow": "OAuth → Onboarding → Sync",
+        "fix_priority": "CRITICAL",
+        "note": "Frontend code is CORRECT - backend needs to be fixed to accept connection_id parameter"
+      },
+      {
+        "component": "OnboardingFlow.jsx",
+        "line": "38",
+        "issue": "Gets JWT token from localStorage but user may not have token immediately after OAuth if they just signed up",
+        "fix_priority": "MEDIUM",
+        "note": "OAuth callback should automatically create JWT token and pass it to frontend"
+      }
+    ],
+    "design_issues": []
+  },
+  
+  "passed_tests": [
+    "✅ Landing page loads correctly",
+    "✅ Auth page accessible and form renders properly",
+    "✅ Login API endpoint works (verified with curl - returns JWT token)",
+    "✅ OAuth authorization URL generation works",
+    "✅ OAuth redirect to Atlassian works",
+    "✅ NoConnectionState component displays correctly for logged-in users",
+    "✅ Connect Jira button triggers OAuth flow",
+    "✅ Frontend detects OAuth callback params (oauth_success, connection_id, cloud_id)",
+    "✅ App.js correctly sets appState='onboarding' when OAuth params present (line 44)",
+    "✅ OnboardingFlow component mounts when appState='onboarding'",
+    "✅ OnboardingFlow calls /api/sync/start with connection_id parameter"
+  ],
+  
+  "test_report_links": [
+    "/app/test_reports/iteration_6.json"
+  ],
+  
+  "action_item_for_main_agent": {
+    "critical_fix_required": "Fix /api/sync/start endpoint in /app/backend/server.py to accept and use connection_id parameter",
+    "specific_changes_needed": [
+      "1. Line 868: Add connection_id parameter: 'connection_id: str = Query(..., description=\"Connection ID to sync\")'",
+      "2. Line 876: Change from 'find_one({})' to 'find_one({\"id\": connection_id})'",
+      "3. Add JWT authentication: 'user_id: str = Depends(get_current_user_id)'",
+      "4. Verify user owns connection: 'find_one({\"id\": connection_id, \"user_id\": user_id})'",
+      "5. Test complete OAuth → Onboarding → Sync flow with fresh user account"
+    ],
+    "why_this_is_critical": "This is the EXACT broken link causing user's issue. User reports 'Made new ID, connected Jira, got no artifacts' - this is because sync endpoint ignores their connection_id and looks for ANY connection, which doesn't exist or is wrong one.",
+    "testing_after_fix": [
+      "1. Create brand new test user account",
+      "2. Click Connect Jira → complete OAuth flow",
+      "3. Verify OnboardingFlow displays with progress bar",
+      "4. Verify sync job is created in database for correct connection_id",
+      "5. Verify sync executes and pulls data from Jira",
+      "6. Verify OnboardingFlow shows real-time stats (projects, issues, users)",
+      "7. Verify OnboardingFlow transitions to dashboard after sync completes",
+      "8. Verify dashboard shows synced data"
+    ]
+  },
+  
+  "updated_files": [
+    "/app/test_reports/iteration_6.json"
+  ],
+  
+  "success_percentage": {
+    "backend": "30% - OAuth callback works and creates connection, but sync endpoint completely broken",
+    "frontend": "95% - All UI components work correctly, only blocked by backend sync endpoint bug",
+    "integration": "0% - Complete OAuth → Onboarding → Sync flow is broken due to backend ignoring connection_id"
+  },
+  
+  "should_call_test_agent_after_fix": true,
+  "should_main_agent_test_itself": false,
+  
+  "root_cause_analysis": {
+    "exact_broken_link": "OnboardingFlow.jsx line 42 calls '/api/sync/start?connection_id=${connectionId}' → Backend server.py line 876 uses 'find_one({})' which IGNORES the connection_id parameter",
+    "why_user_sees_no_data": "Backend endpoint doesn't accept connection_id parameter, so it looks for ANY connection in database. If database is empty or has different connection, sync fails and user sees no data.",
+    "what_works": [
+      "OAuth authorization and callback",
+      "Connection creation in database",
+      "Frontend OAuth param detection",
+      "OnboardingFlow component mounting",
+      "Frontend calling sync API with correct connection_id"
+    ],
+    "what_broken": [
+      "Backend sync endpoint ignoring connection_id",
+      "Sync never starting for newly created connection",
+      "User stuck in onboarding with no progress",
+      "No data synced from Jira",
+      "User never reaches dashboard"
+    ]
+  }
+}

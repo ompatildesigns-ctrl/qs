@@ -1,0 +1,11 @@
+MONGO_URL=mongodb+srv://<username>:<password>@cluster.mongodb.net/quantumsprout_production?retryWrites=true&w=majority
+DB_NAME=quantumsprout_production
+JIRA_CLIENT_ID=RNFKijJKbUERvmQoyjrwKcjtmwtPj5Gg
+JIRA_CLIENT_SECRET=ATOAwGM94of8TKIFcKndcob-3QOoYjuOaBu7b9RYLGyz02fHDdYlhjt29gg1vTtjJJ8988AF6550
+JIRA_ENC_KEY=GGDbQ4i49uRqSyo2YIfTNUIs5WOlUlQXGFY6ods7JuQ=
+JIRA_REDIRECT_URI=https://easygoing-kindness-production-cd75.up.railway.app/api/auth/jira/callback
+FRONTEND_URL=https://quantumsprout.com
+CORS_ORIGINS=https://quantumsprout.com,http://localhost:3000
+JWT_SECRET_KEY=FF4im6Q67g8jOEm8cotgL1nftjNQ2mYzvs8bQI6WT00
+LOG_LEVEL=INFO
+

@@ -1,0 +1,14 @@
+[
+  {
+    "content": "Identify OAuth callback routing issue",
+    "status": "in_progress"
+  },
+  {
+    "content": "Verify quantumsprout.com DNS and hosting configuration",
+    "status": "pending"
+  },
+  {
+    "content": "Test OAuth flow once routing is fixed",
+    "status": "pending"
+  }
+]

@@ -1,0 +1,310 @@
+{
+  "timestamp": "2025-11-15T17:20:49.688452",
+  "total_tests": 34,
+  "passed_tests": 5,
+  "success_rate": 14.705882352941178,
+  "test_results": [
+    {
+      "test": "Health Check",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "status": "healthy",
+        "service": "jira-sync-backend",
+        "redis": false
+      }
+    },
+    {
+      "test": "Get Current Connection",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "id": "65f86d1e-5d04-42de-8beb-1c62ee9de3f8",
+        "user_id": "2d849a7d-bdaa-4564-9ed1-a1bf9f7392fd",
+        "site_url": "https://libertyhomeguard.atlassian.net",
+        "cloud_id": "77e8589a-cae4-4061-b3fe-d5d061f40d37",
+        "scopes": [
+          "offline_access",
+          "read:jira-user",
+          "read:jira-work"
+        ],
+        "expires_at": "2025-11-11T14:34:05.858425+00:00",
+        "created_at": "2025-11-11T12:22:59.913562+00:00",
+        "updated_at": "2025-11-12T01:23:24.359847+00:00",
+        "last_full_sync_at": "2025-11-12T01:23:24.359839+00:00",
+        "last_delta_sync_at": null
+      }
+    },
+    {
+      "test": "Get Connection Details",
+      "success": false,
+      "details": "Expected 200, got 404",
+      "response_data": {
+        "detail": "Connection not found"
+      }
+    },
+    {
+      "test": "Get Jira Resources",
+      "success": false,
+      "details": "Expected 200, got 503",
+      "response_data": {
+        "detail": "Failed to refresh token: "
+      }
+    },
+    {
+      "test": "Get Sync Stats",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "projects": 41,
+        "issues": 2683,
+        "statuses": 107,
+        "users": 268,
+        "connection_id": "65f86d1e-5d04-42de-8beb-1c62ee9de3f8"
+      }
+    },
+    {
+      "test": "Start Manual Sync",
+      "success": false,
+      "details": "Expected 200, got 404",
+      "response_data": {
+        "detail": "Connection not found or you don't have permission to access it"
+      }
+    },
+    {
+      "test": "Team Comparison Analytics",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Historical Trends Analytics",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Accountability Tracking",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Communication Breakdown",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Executive Summary",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Bottleneck Analysis",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Workload Distribution",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Cycle Time Analysis",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Velocity Trends",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Cost of Delay Analysis",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Team ROI Analysis",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Opportunity Cost Analysis",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Bottleneck Impact Score",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Financial Summary",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Auto-Assign Preview",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Auto-Assign Execute (Dry Run)",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Bulk Archive Preview",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Bulk Archive Execute (Dry Run)",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Rebalance Workload Preview",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "GDPR Data Export",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "GDPR Delete Endpoint",
+      "success": true,
+      "details": "Endpoint exists (not executed in tests)",
+      "response_data": null
+    },
+    {
+      "test": "Security Contact Info",
+      "success": true,
+      "details": "Status: 200",
+      "response_data": {
+        "security_email": "security@quantumsprout.com",
+        "privacy_email": "privacy@quantumsprout.com",
+        "gdpr_email": "gdpr@quantumsprout.com",
+        "legal_email": "legal@quantumsprout.com",
+        "responsible_disclosure": {
+          "policy": "We welcome security researchers to report vulnerabilities responsibly",
+          "response_time": "Within 24 hours",
+          "reward_program": "Bug bounty program planned for Q2 2025"
+        },
+        "encryption": {
+          "in_transit": "HTTPS/TLS 1.2+",
+          "tokens": "Fernet AES-128 CBC + HMAC",
+          "at_rest": "MongoDB encryption available"
+        }
+      }
+    },
+    {
+      "test": "Bottleneck Finder (30 days)",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Bottleneck Finder (90 days)",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Bottleneck Finder (365 days)",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Insights Engine (30 days)",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Insights Engine (90 days)",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    },
+    {
+      "test": "Insights Engine (365 days)",
+      "success": false,
+      "details": "Expected 200, got 401",
+      "response_data": {
+        "detail": "Not authenticated - missing token"
+      }
+    }
+  ]
+}

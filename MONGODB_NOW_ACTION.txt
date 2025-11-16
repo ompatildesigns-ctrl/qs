@@ -1,0 +1,77 @@
+⚠️ CRITICAL: SAVE YOUR PASSWORD NOW!
+=====================================
+
+You're on the MongoDB connection setup modal. Here's what to do:
+
+STEP 1: SAVE YOUR CREDENTIALS (DO THIS FIRST!)
+-----------------------------------------------
+✅ Username: ompatildesigns_db_user
+✅ Password: oMIGENOBJ90KfPOh
+
+ACTION: Click the "Copy" button next to the password (green button)
+        OR manually copy: oMIGENOBJ90KfPOh
+
+⚠️ SAVE THIS PASSWORD NOW - You won't see it again!
+
+
+STEP 2: CREATE DATABASE USER
+-----------------------------
+- Username is pre-filled: ompatildesigns_db_user (keep this)
+- Password is shown: oMIGENOBJ90KfPOh (already copied)
+- Click "Create Database User" button
+
+
+STEP 3: CHOOSE CONNECTION METHOD
+---------------------------------
+After user is created, click "Choose a connection method" (green button)
+Then select "Connect your application"
+
+
+STEP 4: GET CONNECTION STRING
+------------------------------
+- Driver: Select "Python" (version 3.6 or later)
+- Copy the connection string shown
+
+
+STEP 5: FORMAT CONNECTION STRING FOR RAILWAY
+---------------------------------------------
+Your connection string will look like:
+mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
+
+Replace:
+- <username> → ompatildesigns_db_user
+- <password> → oMIGENOBJ90KfPOh
+- Add /quantumsprout_production before the ?
+
+Final format:
+mongodb+srv://ompatildesigns_db_user:oMIGENOBJ90KfPOh@cluster0.xxxxx.mongodb.net/quantumsprout_production?retryWrites=true&w=majority
+
+(Replace cluster0.xxxxx.mongodb.net with your actual cluster address)
+
+
+STEP 6: CONFIGURE NETWORK ACCESS FOR RAILWAY
+---------------------------------------------
+After getting connection string:
+1. Go to "Network Access" in MongoDB Atlas
+2. Click "Add IP Address"
+3. Click "Allow Access from Anywhere" (adds 0.0.0.0/0)
+4. Click "Confirm"
+
+This allows Railway to connect to your database.
+
+
+STEP 7: ADD TO RAILWAY
+-----------------------
+1. Go to Railway Dashboard → Variables tab
+2. Click "New Variable"
+3. Name: MONGO_URL
+4. Value: Paste your formatted connection string
+5. Click "Add"
+
+
+🎯 DO THIS RIGHT NOW:
+1. Click "Copy" button for password (SAVE IT!)
+2. Click "Create Database User"
+3. Click "Choose a connection method"
+4. Continue following steps above
+
