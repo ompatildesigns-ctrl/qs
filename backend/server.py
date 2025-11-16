@@ -98,7 +98,11 @@ async def get_current_user_id_optional(authorization: str = Header(None)) -> Opt
     return get_user_id_from_token(token)
 
 # MongoDB connection
-mongo_url = os.environ['MONGO_URL']
+mongo_url = os.environ.get('MONGO_URL', '').strip()
+if not mongo_url or not (mongo_url.startswith('mongodb://') or mongo_url.startswith('mongodb+srv://')):
+    logger.error(f"Invalid MONGO_URL: '{mongo_url}' (length: {len(mongo_url) if mongo_url else 0})")
+    raise ValueError(f"MONGO_URL must start with 'mongodb://' or 'mongodb+srv://'. Got: '{mongo_url[:50] if mongo_url else 'EMPTY'}...'")
+logger.info(f"MongoDB connection URL: {mongo_url[:30]}...")
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
