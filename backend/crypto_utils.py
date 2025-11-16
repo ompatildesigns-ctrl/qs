@@ -29,8 +29,14 @@ def get_encryptor() -> TokenEncryptor:
     """Get or create the singleton encryptor instance."""
     global _encryptor
     if _encryptor is None:
-        encryption_key = os.environ.get('JIRA_ENC_KEY')
+        encryption_key = os.environ.get('JIRA_ENC_KEY', '').strip()
         if not encryption_key:
-            raise ValueError("JIRA_ENC_KEY environment variable not set")
+            # Debug: Log available env vars that start with JIRA
+            jira_vars = {k: v[:10] + '...' if v and len(v) > 10 else v 
+                        for k, v in os.environ.items() if k.startswith('JIRA')}
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"JIRA_ENC_KEY not found. Available JIRA vars: {list(jira_vars.keys())}")
+            raise ValueError(f"JIRA_ENC_KEY environment variable not set. Available JIRA vars: {list(jira_vars.keys())}")
         _encryptor = TokenEncryptor(encryption_key)
     return _encryptor
